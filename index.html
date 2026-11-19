@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jardín de Santa Inés — Centro Histórico de Puebla</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --parchment: #f4ebd8;
+      --parchment-light: #faf5ea;
+      --parchment-dark: #e6d5b8;
+      --burgundy: #6b1d1d;
+      --burgundy-dark: #4a1010;
+      --gold: #a67c37;
+      --gold-light: #d4af6a;
+      --espresso: #2c1e16;
+    }
+
+    body {
+      background-color: var(--parchment);
+      color: var(--espresso);
+      font-family: 'Lora', Georgia, serif;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(166, 124, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(107, 29, 29, 0.07) 0%, transparent 50%);
+    }
+
+    h1, h2, h3, .font-cinzel {
+      font-family: 'Cinzel', Georgia, serif;
+    }
+
+    .font-playfair {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .baroque-card {
+      background-color: var(--parchment-light);
+      border: 2px solid var(--gold);
+      box-shadow: 0 8px 24px rgba(44, 30, 22, 0.08), inset 0 0 0 4px var(--parchment-light), inset 0 0 0 5px rgba(166, 124, 55, 0.4);
+      position: relative;
+    }
+
+    .burgundy-ribbon {
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+      color: #fdf6e7;
+      border: 1.5px solid var(--gold-light);
+      box-shadow: 0 4px 10px rgba(74, 16, 16, 0.25);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+      color: #faf5ea;
+      border: 1.5px solid var(--gold-light);
+      transition: all 0.25s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(107, 29, 29, 0.35);
+      background: linear-gradient(135deg, #7d2222 0%, var(--burgundy) 100%);
+    }
+
+    .btn-secondary {
+      background-color: var(--parchment-light);
+      color: var(--burgundy);
+      border: 1.5px solid var(--burgundy);
+      transition: all 0.25s ease;
+    }
+    .btn-secondary:hover {
+      background-color: var(--burgundy);
+      color: #faf5ea;
+      transform: translateY(-2px);
+    }
+
+    .timeline-tab.active {
+      background-color: var(--burgundy);
+      color: #faf5ea;
+      border-color: var(--gold-light);
+      box-shadow: 0 4px 12px rgba(107, 29, 29, 0.25);
+    }
+
+    /* Modo lectura */
+    body.reading-mode {
+      background-color: #fbf8f1;
+    }
+    body.reading-mode .prose-reading {
+      font-size: 1.18rem;
+      line-height: 1.95;
+      max-width: 72ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#6b1d1d] selection:text-[#faf5ea]">
+
+  <!-- Barra de Navegación Superior -->
+  <header class="sticky top-0 z-40 bg-[#faf5ea]/95 backdrop-blur-md border-b-2 border-[#a67c37] shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <a href="#inicio" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-full bg-[#6b1d1d] text-[#d4af6a] flex items-center justify-center font-cinzel font-bold text-sm border border-[#a67c37]">SI</span>
+        <div>
+          <span class="font-cinzel font-bold text-[#6b1d1d] text-base sm:text-lg tracking-wide block leading-none">Jardín de Santa Inés</span>
+          <span class="text-[11px] uppercase tracking-widest text-[#7a5c32]">Centro Histórico de Puebla</span>
+        </div>
+      </a>
+
+      <!-- 3 Botones Principales -->
+      <nav class="flex items-center gap-2 sm:gap-3">
+        <a href="#conocelo" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-cinzel font-semibold bg-[#6b1d1d] text-[#faf5ea] border border-[#d4af6a] hover:bg-[#4a1010] transition shadow-sm">
+          Conócelo
+        </a>
+        <a href="#ubicacion" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-cinzel font-semibold bg-[#f4ebd8] text-[#6b1d1d] border border-[#6b1d1d] hover:bg-[#6b1d1d] hover:text-[#faf5ea] transition">
+          Ubicación
+        </a>
+        <a href="#infografia" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-cinzel font-semibold bg-[#f4ebd8] text-[#6b1d1d] border border-[#6b1d1d] hover:bg-[#6b1d1d] hover:text-[#faf5ea] transition">
+          Infografía
+        </a>
+        <button id="toggleReadingBtn" onclick="toggleReadingMode()" title="Activar o desactivar modo lectura" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs border border-[#a67c37] text-[#5c4328] hover:bg-[#e6d5b8] transition">
+          <span>📖</span> <span id="readingLabel">Modo lectura</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Portada Principal (Hero) -->
+  <section id="inicio" class="relative py-12 sm:py-16 px-4 border-b-2 border-[#a67c37]/50">
+    <div class="max-w-5xl mx-auto text-center">
+      <!-- Encabezado Institucional -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-2.5 mb-8 rounded-full bg-[#faf5ea] border border-[#a67c37] shadow-sm">
+        <div class="flex items-center gap-2 text-left">
+          <div class="w-7 h-7 rounded-full border border-[#6b1d1d] flex items-center justify-center text-[#6b1d1d] font-bold text-xs">INAH</div>
+          <div class="leading-tight">
+            <p class="font-cinzel font-bold text-xs text-[#2c1e16]">INAH</p>
+            <p class="text-[10px] text-[#6b5544]">Instituto Nacional de Antropología e Historia</p>
+          </div>
+        </div>
+        <span class="hidden sm:inline text-[#a67c37]">|</span>
+        <div class="flex items-center gap-2 text-left">
+          <div class="w-7 h-7 rounded-full border border-[#6b1d1d] flex items-center justify-center text-[#6b1d1d] font-bold text-xs">🏛️</div>
+          <div class="leading-tight">
+            <p class="font-cinzel font-bold text-xs text-[#2c1e16]">Puebla</p>
+            <p class="text-[10px] text-[#6b5544]">Contigo y con rumbo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ornamento Superior -->
+      <div class="flex items-center justify-center gap-3 text-[#a67c37] mb-3">
+        <span class="h-[1px] w-12 sm:w-20 bg-[#a67c37]"></span>
+        <span class="text-lg">❧ ✦ ☙</span>
+        <span class="h-[1px] w-12 sm:w-20 bg-[#a67c37]"></span>
+      </div>
+
+      <p class="font-cinzel text-lg sm:text-xl tracking-[0.25em] text-[#6b1d1d] font-bold uppercase mb-1">
+        Jardín de
+      </p>
+      <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#4a1010] tracking-wide drop-shadow-sm mb-4">
+        SANTA INÉS
+      </h1>
+      <div class="inline-block burgundy-ribbon px-6 py-1.5 rounded-full font-cinzel text-sm sm:text-base tracking-widest uppercase mb-6">
+        Centro Histórico de Puebla
+      </div>
+
+      <p class="max-w-2xl mx-auto text-base sm:text-lg text-[#3d2b1f] leading-relaxed mb-8">
+        Un emblemático espacio público poblano con raíces conventuales del siglo XVII, testigo de la arquitectura barroca y la historia viva del corazón de Puebla.
+      </p>
+
+  <!-- Sección 1: Conócelo (Ficha Técnica + Reseña + Cronología) -->
+  <section id="conocelo" class="py-14 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase tracking-[0.25em] text-[#a67c37] font-cinzel font-bold">Patrimonio Histórico</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-[#6b1d1d] mt-1">Conoce el Jardín de Santa Inés</h2>
+        <div class="w-24 h-0.5 bg-[#a67c37] mx-auto mt-3"></div>F
+      </div>
+
+      <!-- Ficha Técnica en 6 Tarjetas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        <!-- Nombre del sitio -->
+        <div class="baroque-card p-6 rounded-xl">
+          <div class="burgundy-ribbon inline-block px-4 py-1 rounded-full font-cinzel text-xs font-bold tracking-wider mb-3">
+            Nombre del sitio
+          </div>
+          <p class="text-[#2c1e16] text-base leading-relaxed">
+            <strong>Jardín de Santa Inés</strong>, también conocido como <strong>Parque de Santa Inés</strong>.
+          </p>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="baroque-card p-6 rounded-xl">
+          <div class="burgundy-ribbon inline-block px-4 py-1 rounded-full font-cinzel text-xs font-bold tracking-wider mb-3">
+            Ubicación
+          </div>
+          <p class="text-[#2c1e16] text-base leading-relaxed">
+            <strong>3 Sur y 9 Poniente</strong>, Centro Histórico, Puebla, Puebla.
+          </p>
+        </div>
+
+        <!-- Construcción del inmueble -->
+        <div class="baroque-card p-6 rounded-xl">
+          <div class="burgundy-ribbon inline-block px-4 py-1 rounded-full font-cinzel text-xs font-bold tracking-wider mb-3">
+            Construcción del inmueble
+          </div>
+          <p class="text-[#2c1e16] text-sm leading-relaxed">
+            El conjunto conventual comenzó a establecerse en <strong>1620</strong> con la iniciativa de doña Jerónima de Cárñoba. En <strong>1626</strong> las religiosas tomaron posesión del inmueble.
+          </p>
+        </div>
+
+        <!-- Estilo arquitectónico -->
+        <div class="baroque-card p-6 rounded-xl">
+          <div class="burgundy-ribbon inline-block px-4 py-1 rounded-full font-cinzel text-xs font-bold tracking-wider mb-3">
+            Estilo arquitectónico
+          </div>
+          <p class="text-[#2c1e16] text-base font-semibold">
+            Barroco poblano.
+          </p>
+        </div>
+
+        <!-- Uso original -->
+        <div class="baroque-card p-6 rounded-xl">
+          <div class="burgundy-ribbon inline-block px-4 py-1 rounded-full font-cinzel text-xs font-bold tracking-wider mb-3">
+            Uso original
+          </div>
+          <p class="text-[#2c1e16] text-base">
+            Convento de monjas dominicas.
+          </p>
+        </div>
+
+        <!-- Uso actual -->
+        <div class="baroque-card p-6 rounded-xl">
+          <div class="burgundy-ribbon inline-block px-4 py-1 rounded-full font-cinzel text-xs font-bold tracking-wider mb-3">
+            Uso actual
+          </div>
+          <p class="text-[#2c1e16] text-base">
+            Jardín y espacio público de recreación y convivencia.
+          </p>
+        </div>
+      </div>
+
+      <!-- Reseña Histórica y Cronología -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Reseña Histórica -->
+        <div class="lg:col-span-6 baroque-card p-7 sm:p-8 rounded-2xl">
+          <div class="flex items-center justify-between mb-4">
+            <span class="burgundy-ribbon px-5 py-1.5 rounded-full font-cinzel text-sm font-bold tracking-wider">
+              Reseña histórica
+            </span>
+            <span class="text-[#a67c37] text-xl">❦</span>
+          </div>
+          <div class="prose-reading space-y-4 text-[#2c1e16] leading-relaxed text-justify">
+            <p>
+              El <strong>Jardín de Santa Inés</strong> tiene sus orígenes en el siglo XVII, cuando se estableció el <strong>convento de Santa Inés de Montepulicano</strong>.
+            </p>
+            <p>
+              Con el paso del tiempo, el conjunto sufrió transformaciones debido a los conflictos políticos y las <strong>Leyes de Reforma</strong>. Durante el siglo XIX, el convento fue exclaustrado y parte de su terreno dio paso al actual jardín público que hoy disfrutan los habitantes y visitantes del Centro Histórico de Puebla.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cronología Interactiva -->
+        <div class="lg:col-span-6 baroque-card p-7 sm:p-8 rounded-2xl">
+          <div class="flex items-center justify-between mb-5">
+            <span class="burgundy-ribbon px-5 py-1.5 rounded-full font-cinzel text-sm font-bold tracking-wider">
+              Cronología
+            </span>
+            <span class="text-xs text-[#7a5c32] italic">Selecciona un año</span>
+          </div>
+
+          <!-- Pestañas de años -->
+          <div class="grid grid-cols-3 gap-2.5 mb-6">
+            <button onclick="selectYear(0)" id="tab-0" class="timeline-tab active py-2.5 px-3 rounded-xl border border-[#a67c37] font-cinzel font-bold text-base sm:text-lg transition cursor-pointer">
+              1620
+            </button>
+            <button onclick="selectYear(1)" id="tab-1" class="timeline-tab py-2.5 px-3 rounded-xl border border-[#a67c37] bg-[#f4ebd8] text-[#6b1d1d] font-cinzel font-bold text-base sm:text-lg transition cursor-pointer">
+              1663
+            </button>
+            <button onclick="selectYear(2)" id="tab-2" class="timeline-tab py-2.5 px-3 rounded-xl border border-[#a67c37] bg-[#f4ebd8] text-[#6b1d1d] font-cinzel font-bold text-base sm:text-lg transition cursor-pointer">
+              1863
+            </button>
+          </div>
+
+          <!-- Contenido dinámico de cronología -->
+          <div id="timeline-content" class="bg-[#f4ebd8]/80 border border-[#a67c37]/60 rounded-xl p-6 min-h-[165px] flex flex-col justify-center">
+            <span id="timeline-badge" class="text-xs font-cinzel uppercase tracking-widest text-[#a67c37] font-bold mb-1">Etapa I — Siglo XVII</span>
+            <h3 id="timeline-title" class="font-cinzel text-2xl font-bold text-[#6b1d1d] mb-2">1620: Fundación del convento</h3>
+            <p id="timeline-desc" class="text-[#2c1e16] leading-relaxed">
+              Comienza el establecimiento del conjunto conventual de Santa Inés de Montepulicano gracias a la iniciativa y patronazgo de doña Jerónima de Cárñoba, consolidándose años más tarde con la llegada de las religiosas dominicas en 1626.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 2: Infografía Original -->
+  <section id="infografia" class="py-14 px-4 bg-[#e6d5b8]/45 border-y-2 border-[#a67c37]/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-[0.25em] text-[#a67c37] font-cinzel font-bold">Documento Gráfico</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-[#6b1d1d] mt-1">Infografía Original</h2>
+        <p class="text-sm sm:text-base text-[#4a3728] mt-2 max-w-xl mx-auto">
+          Explora el cartel completo del Jardín de Santa Inés o ábrelo en pantalla completa para leer cada detalle con acercamiento.
+        </p>
+      </div>
+
+      <div class="baroque-card p-4 sm:p-7 rounded-2xl max-w-3xl mx-auto">
+        <!-- Marco de la Imagen de la Infografía -->
+        <div class="relative overflow-hidden rounded-xl border-2 border-[#6b1d1d] bg-[#f4ebd8] shadow-inner group">
+          <img 
+            src="info.jpg"
+            alt="Infografía del Jardín de Santa Inés - Centro Histórico de Puebla" 
+            class="w-full h-auto object-contain mx-auto block transition duration-300 group-hover:scale-[1.01]"
+            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-10 text-center text-[#6b1d1d]\'><p class=\'font-cinzel font-bold text-lg mb-2\'>Aquí aparecerá tu imagen: info.jpg</p><p class=\'text-sm text-[#4a3728]\'>Guarda la foto de tu infografía con el nombre <strong>info.jpg</strong> en la misma carpeta que este archivo HTML y recarga la página.</p></div>';"
+          />
+        </div>
+
+        <!-- Botón de Pantalla Completa -->
+        <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+          <button onclick="openInfographicModal()" class="btn-primary px-6 py-2.5 rounded-full font-cinzel text-sm font-bold tracking-wider inline-flex items-center gap-2 cursor-pointer">
+            <span>🔍</span> Ampliar infografía en pantalla completa
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Ubicación -->
+  <section id="ubicacion" class="py-14 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase tracking-[0.25em] text-[#a67c37] font-cinzel font-bold">Cómo Llegar</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-[#6b1d1d] mt-1">Ubicación</h2>
+        <div class="w-24 h-0.5 bg-[#a67c37] mx-auto mt-3"></div>
+      </div>
+
+      <div class="baroque-card p-6 sm:p-8 rounded-2xl grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-5 space-y-4">
+          <div class="burgundy-ribbon inline-block px-4 py-1 rounded-full font-cinzel text-xs font-bold tracking-wider">
+            Dirección Oficial
+          </div>
+          <h3 class="font-cinzel text-2xl font-bold text-[#4a1010]">
+            3 Sur y 9 Poniente
+          </h3>
+          <p class="text-[#2c1e16] leading-relaxed">
+            <strong>Centro Histórico</strong><br>
+            72000 Puebla, Puebla, México.
+          </p>
+          <p class="text-sm text-[#5c4328] leading-relaxed">
+            Ubicado a pocas calles del Zócalo de la ciudad de Puebla, rodeado de arquitectura colonial y espacios culturales tradicionales.
+          </p>
+
+          <div class="pt-2 flex flex-wrap gap-3">
+            <button onclick="copyAddress()" class="btn-secondary px-4 py-2 rounded-full text-xs font-cinzel font-bold tracking-wider cursor-pointer">
+              📋 Copiar dirección
+            </button>
+            <a href="https://www.google.com/maps/search/?api=1&query=Jardin+de+Santa+Ines+3+Sur+y+9+Poniente+Puebla" target="_blank" rel="noopener noreferrer" class="btn-primary px-4 py-2 rounded-full text-xs font-cinzel font-bold tracking-wider">
+              🗺️ Abrir en Google Maps
+            </a>
+          </div>
+          <p id="copyFeedback" class="text-xs text-[#6b1d1d] font-semibold hidden">✓ ¡Dirección copiada al portapapeles!</p>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="rounded-xl overflow-hidden border-2 border-[#a67c37] shadow-md h-72 sm:h-80 bg-[#e6d5b8]">
+            <iframe 
+              title="Mapa del Jardín de Santa Inés, Puebla"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-98.2045%2C19.0385%2C-98.1985%2C19.0435&layer=mapnik&marker=19.0410%2C-98.2015" 
+              class="w-full h-full border-0"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4: Fuentes Bibliográficas y Créditos -->
+  <footer class="bg-[#4a1010] text-[#faf5ea] border-t-4 border-[#a67c37] py-12 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Fuentes Bibliográficas -->
+      <div>
+        <h3 class="font-cinzel text-lg font-bold text-[#d4af6a] tracking-wider uppercase mb-4 flex items-center gap-2">
+          <span>📚</span> Fuentes bibliográficas
+        </h3>
+        <ol class="list-decimal list-inside space-y-2.5 text-sm text-[#f4ebd8]/90 leading-relaxed">
+          <li>INAH. <em>Catálogo Nacional de Monumentos Históricos Inmuebles. Puebla.</em></li>
+          <li>Ayuntamiento de Puebla. <em>Guía de Patrimonio Religioso de la Ciudad de Puebla.</em></li>
+          <li>De la Maza, F. (1981). <em>El Arte Funerario en la Nueva España.</em></li>
+        </ol>
+      </div>
+
+      <!-- Elaborado por -->
+      <div>
+        <h3 class="font-cinzel text-lg font-bold text-[#d4af6a] tracking-wider uppercase mb-4 flex items-center gap-2">
+          <span>✒️</span> Elaborado por
+        </h3>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#f4ebd8]/95">
+          <li>• Wendy Ramos Valencia</li>
+          <li>• Rubí Denisse Hernández Reyes</li>
+          <li>• Ximena Campos Cantero</li>
+          <li>• Andrea Alexandra Beltranena Lemus</li>
+          <li>• Santiago Eluzaí Vargas Velez</li>
+          <li>• Telma Itzel Díaz González</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-[#a67c37]/30 text-center text-xs text-[#d4af6a]/80 font-cinzel tracking-widest">
+      Jardín de Santa Inés • Centro Histórico de Puebla
+    </div>
+  </footer>
+
+  <!-- Modal Visor de Infografía con Zoom -->
+  <div id="infographicModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex flex-col">
+    <!-- Barra de Controles del Visor -->
+    <div class="flex items-center justify-between px-4 py-3 bg-[#2c1e16] text-[#faf5ea] border-b border-[#a67c37]">
+      <span class="font-cinzel text-sm sm:text-base font-bold text-[#d4af6a]">Infografía — Jardín de Santa Inés</span>
+      <div class="flex items-center gap-2">
+        <button onclick="zoomImage(-0.2)" class="px-3 py-1 rounded bg-[#6b1d1d] hover:bg-[#8a2626] text-sm font-bold border border-[#d4af6a] cursor-pointer" title="Alejar">−</button>
+        <button onclick="resetZoom()" class="px-3 py-1 rounded bg-[#4a1010] hover:bg-[#6b1d1d] text-xs font-cinzel border border-[#a67c37] cursor-pointer">100%</button>
+        <button onclick="zoomImage(0.2)" class="px-3 py-1 rounded bg-[#6b1d1d] hover:bg-[#8a2626] text-sm font-bold border border-[#d4af6a] cursor-pointer" title="Acercar">+</button>
+        <button onclick="closeInfographicModal()" class="ml-2 px-3.5 py-1 rounded bg-[#d4af6a] text-[#2c1e16] font-cinzel font-bold text-xs hover:bg-[#e5c483] cursor-pointer">Cerrar ✕</button>
+      </div>
+    </div>
+
+    <!-- Contenedor con Scroll para la Imagen -->
+    <div class="flex-1 overflow-auto flex items-center justify-center p-4">
+      <img 
+        id="modalInfographicImg" 
+        src="info.jpg" 
+        alt="Infografía ampliada del Jardín de Santa Inés" 
+        class="max-h-[85vh] w-auto transition-transform duration-200 origin-center rounded shadow-2xl"
+      />
+    </div>
+  </div>
+
+  <script>
+    // Datos de la Cronología
+    const timelineData = [
+      {
+        badge: "Etapa I — Siglo XVII",
+        title: "1620: Fundación del convento",
+        desc: "Comienza el establecimiento del conjunto conventual de Santa Inés de Montepulicano gracias a la iniciativa y patronazgo de doña Jerónima de Cárñoba, consolidándose años más tarde con la llegada de las religiosas dominicas en 1626."
+      },
+      {
+        badge: "Etapa II — Siglo XVII",
+        title: "1663: Dedicación de la iglesia",
+        desc: "Se realiza la solemne dedicación del templo conventual, pieza clave del barroco poblano que acompañó la vida religiosa del recinto durante la época virreinal."
+      },
+      {
+        badge: "Etapa III — Siglo XIX",
+        title: "1863: Se vuelve espacio público",
+        desc: "Tras los conflictos políticos y la aplicación de las Leyes de Reforma, el convento sufrió transformaciones y parte de su espacio se abrió para convertirse en el jardín público de recreación y convivencia que conocemos hoy."
+      }
+    ];
+
+    function selectYear(index) {
+      document.querySelectorAll('.timeline-tab').forEach((btn, i) => {
+        if (i === index) {
+          btn.classList.add('active');
+          btn.classList.remove('bg-[#f4ebd8]', 'text-[#6b1d1d]');
+        } else {
+          btn.classList.remove('active');
+          btn.classList.add('bg-[#f4ebd8]', 'text-[#6b1d1d]');
+        }
+      });
+
+      document.getElementById('timeline-badge').textContent = timelineData[index].badge;
+      document.getElementById('timeline-title').textContent = timelineData[index].title;
+      document.getElementById('timeline-desc').textContent = timelineData[index].desc;
+    }
+
+    // Modo Lectura
+    function toggleReadingMode() {
+      document.body.classList.toggle('reading-mode');
+      const label = document.getElementById('readingLabel');
+      label.textContent = document.body.classList.contains('reading-mode') ? 'Vista normal' : 'Modo lectura';
+    }
+
+    // Copiar dirección
+    function copyAddress() {
+      navigator.clipboard.writeText("Jardín de Santa Inés, 3 Sur y 9 Poniente, Centro Histórico, Puebla, Puebla.");
+      const feedback = document.getElementById('copyFeedback');
+      feedback.classList.remove('hidden');
+      setTimeout(() => feedback.classList.add('hidden'), 3000);
+    }
+
+    // Visor Modal con Zoom
+    let currentZoom = 1;
+
+    function openInfographicModal() {
+      currentZoom = 1;
+      updateZoom();
+      document.getElementById('infographicModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeInfographicModal() {
+      document.getElementById('infographicModal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function zoomImage(delta) {
+      currentZoom = Math.min(Math.max(0.6, currentZoom + delta), 2.6);
+      updateZoom();
+    }
+
+    function resetZoom() {
+      currentZoom = 1;
+      updateZoom();
+    }
+
+    function updateZoom() {
+      document.getElementById('modalInfographicImg').style.transform = `scale(${currentZoom})`;
+    }
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeInfographicModal();
+    });
+  </script>
+</body>
+</html>
+
