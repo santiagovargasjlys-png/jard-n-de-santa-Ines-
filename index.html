@@ -98,89 +98,12 @@
 </head>
 <body class="antialiased selection:bg-[#6b1d1d] selection:text-[#faf5ea]">
 
-  <!-- Barra de Navegación Superior -->
-  <header class="sticky top-0 z-40 bg-[#faf5ea]/95 backdrop-blur-md border-b-2 border-[#a67c37] shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
-      <a href="#inicio" class="flex items-center gap-2.5 group">
-        <span class="w-8 h-8 rounded-full bg-[#6b1d1d] text-[#d4af6a] flex items-center justify-center font-cinzel font-bold text-sm border border-[#a67c37]">SI</span>
-        <div>
-          <span class="font-cinzel font-bold text-[#6b1d1d] text-base sm:text-lg tracking-wide block leading-none">Jardín de Santa Inés</span>
-          <span class="text-[11px] uppercase tracking-widest text-[#7a5c32]">Centro Histórico de Puebla</span>
-        </div>
-      </a>
-
-      <!-- 3 Botones Principales -->
-      <nav class="flex items-center gap-2 sm:gap-3">
-        <a href="#conocelo" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-cinzel font-semibold bg-[#6b1d1d] text-[#faf5ea] border border-[#d4af6a] hover:bg-[#4a1010] transition shadow-sm">
-          Conócelo
-        </a>
-        <a href="#ubicacion" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-cinzel font-semibold bg-[#f4ebd8] text-[#6b1d1d] border border-[#6b1d1d] hover:bg-[#6b1d1d] hover:text-[#faf5ea] transition">
-          Ubicación
-        </a>
-        <a href="#infografia" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-cinzel font-semibold bg-[#f4ebd8] text-[#6b1d1d] border border-[#6b1d1d] hover:bg-[#6b1d1d] hover:text-[#faf5ea] transition">
-          Infografía
-        </a>
-<a href="#juego" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-cinzel font-semibold bg-[#d4af6a] text-[#2c1e16] border border-[#6b1d1d] hover:bg-[#c2994d] transition shadow-sm">
-          🏃‍♀️ Juego
-        </a>
-        <button id="toggleReadingBtn" onclick="toggleReadingMode()" title="Activar o desactivar modo lectura" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs border border-[#a67c37] text-[#5c4328] hover:bg-[#e6d5b8] transition">
-          <span>📖</span> <span id="readingLabel">Modo lectura</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
   <!-- Portada Principal (Hero) -->
   <section id="inicio" class="relative py-12 sm:py-16 px-4 border-b-2 border-[#a67c37]/50">
     <div class="max-w-5xl mx-auto text-center">
-      <!-- Encabezado Institucional -->
-      <div class="inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-2.5 mb-8 rounded-full bg-[#faf5ea] border border-[#a67c37] shadow-sm">
-        <div class="flex items-center gap-2 text-left">
-          <div class="w-7 h-7 rounded-full border border-[#6b1d1d] flex items-center justify-center text-[#6b1d1d] font-bold text-xs">INAH</div>
-          <div class="leading-tight">
-            <p class="font-cinzel font-bold text-xs text-[#2c1e16]">INAH</p>
-            <p class="text-[10px] text-[#6b5544]">Instituto Nacional de Antropología e Historia</p>
-          </div>
-        </div>
-        <span class="hidden sm:inline text-[#a67c37]">|</span>
-        <div class="flex items-center gap-2 text-left">
-          <div class="w-7 h-7 rounded-full border border-[#6b1d1d] flex items-center justify-center text-[#6b1d1d] font-bold text-xs">🏛️</div>
-          <div class="leading-tight">
-            <p class="font-cinzel font-bold text-xs text-[#2c1e16]">Puebla</p>
-            <p class="text-[10px] text-[#6b5544]">Contigo y con rumbo</p>
-          </div>
-        </div>
-      </div>
+  
 
-      <!-- Ornamento Superior -->
-      <div class="flex items-center justify-center gap-3 text-[#a67c37] mb-3">
-        <span class="h-[1px] w-12 sm:w-20 bg-[#a67c37]"></span>
-        <span class="text-lg">❧ ✦ ☙</span>
-        <span class="h-[1px] w-12 sm:w-20 bg-[#a67c37]"></span>
-      </div>
 
-      <p class="font-cinzel text-lg sm:text-xl tracking-[0.25em] text-[#6b1d1d] font-bold uppercase mb-1">
-        Jardín de
-      </p>
-      <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#4a1010] tracking-wide drop-shadow-sm mb-4">
-        SANTA INÉS
-      </h1>
-      <div class="inline-block burgundy-ribbon px-6 py-1.5 rounded-full font-cinzel text-sm sm:text-base tracking-widest uppercase mb-6">
-        Centro Histórico de Puebla
-      </div>
-
-      <p class="max-w-2xl mx-auto text-base sm:text-lg text-[#3d2b1f] leading-relaxed mb-8">
-        Un emblemático espacio público poblano con raíces conventuales del siglo XVII, testigo de la arquitectura barroca y la historia viva del corazón de Puebla.
-      </p>
-
-  <!-- Sección 1: Conócelo (Ficha Técnica + Reseña + Cronología) -->
-  <section id="conocelo" class="py-14 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-10">
-        <span class="text-xs uppercase tracking-[0.25em] text-[#a67c37] font-cinzel font-bold">Patrimonio Histórico</span>
-        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-[#6b1d1d] mt-1">Conoce el Jardín de Santa Inés</h2>
-        <div class="w-24 h-0.5 bg-[#a67c37] mx-auto mt-3"></div>
-      </div>
 
       <!-- Ficha Técnica en 6 Tarjetas -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
