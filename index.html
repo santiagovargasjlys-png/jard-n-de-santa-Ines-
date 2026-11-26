@@ -93,7 +93,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-#santaInesCanvas { display: block; width: 100%; max-width: 820px; height: auto; margin: 0 auto; border-radius: 14px; border: 2px solid var(--burgundy); background: linear-gradient(180deg, #fdf6e7 0%, #f4ebd8 62%, #e3cfa9 62%, #cfa972 100%); touch-action: manipulation; }
   </style>
 </head>
 <body class="antialiased selection:bg-[#6b1d1d] selection:text-[#faf5ea]">
@@ -101,9 +100,15 @@
   <!-- Portada Principal (Hero) -->
   <section id="inicio" class="relative py-12 sm:py-16 px-4 border-b-2 border-[#a67c37]/50">
     <div class="max-w-5xl mx-auto text-center">
-  
+      <span class="burgundy-ribbon px-4 py-1.5 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase inline-block mb-3">Patrimonio Histórico</span>
+      <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold text-[#6b1d1d] mb-4">Jardín de Santa Inés</h1>
+      <p class="font-playfair text-lg sm:text-xl text-[#4a3728] italic max-w-2xl mx-auto">
+        Un oasis de memoria virreinal y barroca en el corazón de la Angelópolis (3 Sur y 9 Poniente).
+      </p>
+    </div>
+  </section>
         
-  <!-- Sección 2: Infografía Original -->
+  <!-- Sección: Infografía Original -->
   <section id="infografia" class="py-14 px-4 bg-[#e6d5b8]/45 border-y-2 border-[#a67c37]/50">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-8">
@@ -134,40 +139,10 @@
       </div>
     </div>
   </section>
-<section id="juego" class="py-14 px-4">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-8">
-        <span class="text-xs uppercase tracking-[0.25em] text-[#a67c37] font-cinzel font-bold">Aventura Interactiva</span>
-        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-[#6b1d1d] mt-1">Aventura en el Jardín de Santa Inés</h2>
-        <p class="text-sm sm:text-base text-[#4a3728] mt-2 max-w-xl mx-auto">Salta obstáculos, junta estrellas y atrapa los <strong>5 Pergaminos</strong>.</p>
-      </div>
-      <div class="baroque-card p-5 sm:p-7 rounded-2xl">
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-[#a67c37]/40 font-cinzel text-xs sm:text-sm font-bold">
-          <span class="burgundy-ribbon px-3.5 py-1 rounded-full">📜 Pergaminos: <span id="hudScrolls">0/5</span></span>
-          <span class="px-3.5 py-1 rounded-full bg-[#f4ebd8] border border-[#a67c37] text-[#6b1d1d]">⭐ Puntos: <span id="hudScore">0</span></span>
-          <span class="px-3.5 py-1 rounded-full bg-[#f4ebd8] border border-[#a67c37] text-[#4a1010]">❤️ Vidas: <span id="hudLives">3</span></span>
-        </div>
-        <canvas id="santaInesCanvas" width="820" height="340"></canvas>
-        <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <p class="text-xs sm:text-sm text-[#5c4328]">Controles: <strong>Espacio / ↑ / Clic</strong> para saltar • <strong>← / →</strong> para moverte.</p>
-          <div class="flex items-center gap-2">
-            <button id="btnStartGame" onclick="startSantaInesGame()" class="btn-primary px-5 py-2 rounded-full font-cinzel text-xs sm:text-sm font-bold tracking-wider cursor-pointer">▶ Jugar / Reiniciar</button>
-            <button onclick="triggerPlayerJump()" class="btn-secondary px-4 py-2 rounded-full font-cinzel text-xs sm:text-sm font-bold tracking-wider cursor-pointer">⬆ Saltar</button>
-          </div>
-        </div>
-        <div id="scrollModalBox" class="hidden mt-5 p-4 sm:p-5 rounded-xl bg-[#f4ebd8] border-2 border-[#a67c37]">
-          <div class="flex items-center justify-between gap-2 mb-1">
-            <span id="scrollBadge" class="font-cinzel text-xs font-bold uppercase tracking-wider text-[#6b1d1d]"></span>
-            <button onclick="continueAfterScroll()" class="btn-primary px-4 py-1 rounded-full font-cinzel text-xs font-bold cursor-pointer">Seguir corriendo →</button>
-          </div>
-          <h3 id="scrollTitle" class="font-cinzel text-lg font-bold text-[#4a1010] mb-1"></h3>
-          <p id="scrollFact" class="text-sm text-[#2c1e16] leading-relaxed"></p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-    <div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-[#a67c37]/30 text-center text-xs text-[#d4af6a]/80 font-cinzel tracking-widest">
+  <!-- Pie de Página -->
+  <footer class="py-10 px-4">
+    <div class="max-w-5xl mx-auto pt-6 border-t border-[#a67c37]/30 text-center text-xs text-[#a67c37] font-cinzel tracking-widest">
       Jardín de Santa Inés • Centro Histórico de Puebla
     </div>
   </footer>
@@ -197,56 +172,6 @@
   </div>
 
   <script>
-    // Datos de la Cronología
-    const timelineData = [
-      {
-        badge: "Etapa I — Siglo XVII",
-        title: "1620: Fundación del convento",
-        desc: "Comienza el establecimiento del conjunto conventual de Santa Inés de Montepulicano gracias a la iniciativa y patronazgo de doña Jerónima de Cárñoba, consolidándose años más tarde con la llegada de las religiosas dominicas en 1626."
-      },
-      {
-        badge: "Etapa II — Siglo XVII",
-        title: "1663: Dedicación de la iglesia",
-        desc: "Se realiza la solemne dedicación del templo conventual, pieza clave del barroco poblano que acompañó la vida religiosa del recinto durante la época virreinal."
-      },
-      {
-        badge: "Etapa III — Siglo XIX",
-        title: "1863: Se vuelve espacio público",
-        desc: "Tras los conflictos políticos y la aplicación de las Leyes de Reforma, el convento sufrió transformaciones y parte de su espacio se abrió para convertirse en el jardín público de recreación y convivencia que conocemos hoy."
-      }
-    ];
-
-    function selectYear(index) {
-      document.querySelectorAll('.timeline-tab').forEach((btn, i) => {
-        if (i === index) {
-          btn.classList.add('active');
-          btn.classList.remove('bg-[#f4ebd8]', 'text-[#6b1d1d]');
-        } else {
-          btn.classList.remove('active');
-          btn.classList.add('bg-[#f4ebd8]', 'text-[#6b1d1d]');
-        }
-      });
-
-      document.getElementById('timeline-badge').textContent = timelineData[index].badge;
-      document.getElementById('timeline-title').textContent = timelineData[index].title;
-      document.getElementById('timeline-desc').textContent = timelineData[index].desc;
-    }
-
-    // Modo Lectura
-    function toggleReadingMode() {
-      document.body.classList.toggle('reading-mode');
-      const label = document.getElementById('readingLabel');
-      label.textContent = document.body.classList.contains('reading-mode') ? 'Vista normal' : 'Modo lectura';
-    }
-
-    // Copiar dirección
-    function copyAddress() {
-      navigator.clipboard.writeText("Jardín de Santa Inés, 3 Sur y 9 Poniente, Centro Histórico, Puebla, Puebla.");
-      const feedback = document.getElementById('copyFeedback');
-      feedback.classList.remove('hidden');
-      setTimeout(() => feedback.classList.add('hidden'), 3000);
-    }
-
     // Visor Modal con Zoom
     let currentZoom = 1;
 
@@ -275,112 +200,11 @@
     function updateZoom() {
       document.getElementById('modalInfographicImg').style.transform = `scale(${currentZoom})`;
     }
+
     // Cerrar modal con tecla Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeInfographicModal();
     });
-const canvas = document.getElementById('santaInesCanvas'), ctx = canvas.getContext('2d');
-    const historicalScrolls = [
-      { badge: "Pergamino 1 de 5 • Ubicación", title: "3 Sur y 9 Poniente", fact: "El Jardín de Santa Inés se ubica en 3 Sur y 9 Poniente, en el Centro Histórico de Puebla." },
-      { badge: "Pergamino 2 de 5 • Fundación", title: "El inicio en 1620", fact: "En 1620 comenzó el establecimiento del conjunto conventual de Santa Inés de Montepulicano, y en 1626 tomaron posesión las religiosas." },
-      { badge: "Pergamino 3 de 5 • Arquitectura", title: "Barroco poblano", fact: "El recinto destaca por su herencia del barroco poblano y su valor histórico." },
-      { badge: "Pergamino 4 de 5 • Origen", title: "Convento de monjas dominicas", fact: "Su uso original fue como convento de monjas dominicas durante la época virreinal." },
-      { badge: "Pergamino 5 de 5 • Transformación", title: "Espacio público en el siglo XIX", fact: "Tras los conflictos políticos y las Leyes de Reforma, se transformó en el jardín y espacio público de convivencia que hoy conocemos." }
-    ];
-    const GROUND_Y = 278;
-    let gameLoopId = null, gameState = 'idle', score = 0, lives = 3, scrollsCollected = 0, frameCount = 0, spawnCooldown = 75, invulnerableTimer = 0;
-    const keys = { left: false, right: false };
-    const player = { x: 110, y: GROUND_Y, w: 34, h: 48, vy: 0, gravity: 0.72, jumpPower: -13.5, onGround: true, runCycle: 0 };
-    const chronicler = { x: 52, y: GROUND_Y, bob: 0 };
-    let obstacles = [], collectibles = [];
-    function updateHud() { document.getElementById('hudScrolls').textContent = `${scrollsCollected}/${historicalScrolls.length}`; document.getElementById('hudScore').textContent = score; document.getElementById('hudLives').textContent = lives; }
-    function startSantaInesGame() { score = 0; lives = 3; scrollsCollected = 0; frameCount = 0; spawnCooldown = 65; invulnerableTimer = 0; obstacles = []; collectibles = []; player.x = 110; player.y = GROUND_Y; player.vy = 0; player.onGround = true; gameState = 'playing'; document.getElementById('scrollModalBox').classList.add('hidden'); updateHud(); if (gameLoopId) cancelAnimationFrame(gameLoopId); loopGame(); }
-    function triggerPlayerJump() { if (gameState === 'idle' || gameState === 'won' || gameState === 'lost') return startSantaInesGame(); if (gameState === 'playing' && player.onGround) { player.vy = player.jumpPower; player.onGround = false; } }
-    function continueAfterScroll() { document.getElementById('scrollModalBox').classList.add('hidden'); if (scrollsCollected >= historicalScrolls.length) { gameState = 'won'; score += 250; updateHud(); drawScene(); } else { gameState = 'playing'; loopGame(); } }
-    function spawnEntity() {
-      const speed = 4.2 + Math.min(3.5, scrollsCollected * 0.55);
-      if (scrollsCollected < historicalScrolls.length && frameCount % 165 === 0 && !collectibles.some(c => c.type === 'scroll')) { collectibles.push({ type: 'scroll', x: canvas.width + 20, y: GROUND_Y - 78, r: 16, speed, scrollIndex: scrollsCollected }); return; }
-      if (Math.random() < 0.42) { collectibles.push({ type: 'star', x: canvas.width + 20, y: GROUND_Y - (Math.random() < 0.5 ? 42 : 95), r: 12, speed }); }
-      else { const isTall = Math.random() < 0.45; obstacles.push({ x: canvas.width + 25, y: GROUND_Y, w: isTall ? 26 : 36, h: isTall ? 42 : 26, speed, kind: isTall ? 'pot' : 'cart' }); }
-    }
-    function updateGame() {
-      frameCount++; chronicler.bob = Math.sin(frameCount * 0.08) * 3; if (invulnerableTimer > 0) invulnerableTimer--;
-      if (keys.left) player.x = Math.max(85, player.x - 4.5); if (keys.right) player.x = Math.min(canvas.width - 70, player.x + 4.5);
-      if (!player.onGround) { player.vy += player.gravity; player.y += player.vy; if (player.y >= GROUND_Y) { player.y = GROUND_Y; player.vy = 0; player.onGround = true; } } else { player.runCycle += 0.22; }
-      spawnCooldown--; if (spawnCooldown <= 0) { spawnEntity(); spawnCooldown = Math.max(58, 92 - scrollsCollected * 6); }
-      for (let i = obstacles.length - 1; i >= 0; i--) {
-        const ob = obstacles[i]; ob.x -= ob.speed;
-        if (player.x + 12 > ob.x - ob.w / 2 && player.x - 12 < ob.x + ob.w / 2 && player.y > ob.y - ob.h && player.y - player.h < ob.y && invulnerableTimer === 0) { lives--; invulnerableTimer = 65; obstacles.splice(i, 1); updateHud(); if (lives <= 0) { gameState = 'lost'; return; } continue; }
-        if (ob.x < -50) { score += 15; updateHud(); obstacles.splice(i, 1); }
-      }
-      for (let i = collectibles.length - 1; i >= 0; i--) {
-        const item = collectibles[i]; item.x -= item.speed;
-        if (Math.hypot(player.x - item.x, (player.y - player.h / 2) - item.y) < item.r + 22) {
-          if (item.type === 'star') { score += 50; updateHud(); collectibles.splice(i, 1); }
-          else { const data = historicalScrolls[item.scrollIndex]; collectibles.splice(i, 1); scrollsCollected++; score += 120; updateHud(); gameState = 'pausedScroll'; document.getElementById('scrollBadge').textContent = data.badge; document.getElementById('scrollTitle').textContent = data.title; document.getElementById('scrollFact').textContent = data.fact; document.getElementById('scrollModalBox').classList.remove('hidden'); return; }
-          continue;
-        }
-        if (item.x < -40) collectibles.splice(i, 1);
-      }
-    }
-    function drawExplorer(x, y, onGround, runCycle) {
-      const swing = onGround ? Math.sin(runCycle) * 7 : 4;
-      ctx.save(); ctx.translate(x, y); ctx.strokeStyle = '#2c1e16'; ctx.lineWidth = 4;
-      ctx.beginPath(); ctx.moveTo(-5, -14); ctx.lineTo(-5 + swing, 0); ctx.moveTo(5, -14); ctx.lineTo(5 - swing, 0); ctx.stroke();
-      ctx.fillStyle = '#6b1d1d'; ctx.beginPath(); ctx.moveTo(-11, -14); ctx.lineTo(11, -14); ctx.lineTo(7, -30); ctx.lineTo(-7, -30); ctx.closePath(); ctx.fill();
-      ctx.fillStyle = '#f3cfa8'; ctx.beginPath(); ctx.arc(0, -38, 9, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = '#a67c37'; ctx.fillRect(-13, -46, 26, 3.5); ctx.fillStyle = '#4a1010'; ctx.fillRect(-7, -52, 14, 6);
-      ctx.fillStyle = '#2c1e16'; ctx.beginPath(); ctx.arc(3.5, -39, 1.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
-    }
-    function drawChronicler(x, y, bob) {
-      ctx.save(); ctx.translate(x, y + bob); ctx.fillStyle = '#4a1010'; ctx.fillRect(-10, -28, 20, 28);
-      ctx.fillStyle = '#e8c39e'; ctx.beginPath(); ctx.arc(0, -36, 8, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = '#5c4328'; ctx.fillRect(-5, -34, 10, 2); ctx.fillStyle = '#2c1e16'; ctx.fillRect(-11, -43, 22, 3);
-      ctx.fillStyle = '#faf5ea'; ctx.strokeStyle = '#a67c37'; ctx.lineWidth = 1.5; ctx.fillRect(10, -26, 9, 12); ctx.strokeRect(10, -26, 9, 12); ctx.restore();
-    }
-    function drawObstacles() {
-      obstacles.forEach(ob => {
-        ctx.save(); ctx.translate(ob.x, ob.y);
-        if (ob.kind === 'pot') { ctx.fillStyle = '#245e8a'; ctx.beginPath(); ctx.moveTo(-10, 0); ctx.lineTo(10, 0); ctx.lineTo(14, -ob.h); ctx.lineTo(-14, -ob.h); ctx.closePath(); ctx.fill(); ctx.strokeStyle = '#d4af6a'; ctx.lineWidth = 2; ctx.stroke(); }
-        else { ctx.fillStyle = '#7c4d25'; ctx.fillRect(-16, -22, 32, 12); ctx.fillStyle = '#2c1e16'; ctx.beginPath(); ctx.arc(-8, -6, 6, 0, Math.PI * 2); ctx.arc(8, -6, 6, 0, Math.PI * 2); ctx.fill(); }
-        ctx.restore();
-      });
-    }
-    function drawCollectibles() {
-      collectibles.forEach(item => {
-        ctx.save(); ctx.translate(item.x, item.y);
-        if (item.type === 'star') {
-          ctx.fillStyle = '#eab308'; ctx.strokeStyle = '#6b1d1d'; ctx.lineWidth = 1.5; ctx.beginPath();
-          for (let i = 0; i < 5; i++) { const a1 = (i * 72 - 90) * Math.PI / 180, a2 = (i * 72 - 54) * Math.PI / 180; ctx.lineTo(Math.cos(a1) * 12, Math.sin(a1) * 12); ctx.lineTo(Math.cos(a2) * 5, Math.sin(a2) * 5); }
-          ctx.closePath(); ctx.fill(); ctx.stroke();
-        } else {
-          ctx.fillStyle = '#faf5ea'; ctx.strokeStyle = '#6b1d1d'; ctx.lineWidth = 2; ctx.fillRect(-12, -15, 24, 30); ctx.strokeRect(-12, -15, 24, 30);
-          ctx.fillStyle = '#a67c37'; ctx.fillRect(-8, -8, 16, 3); ctx.fillRect(-8, -1, 16, 3); ctx.fillRect(-8, 6, 11, 3);
-        }
-        ctx.restore();
-      });
-    }
-    function drawOverlay(title, subtitle) {
-      ctx.fillStyle = 'rgba(44, 30, 22, 0.72)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#faf5ea'; ctx.font = 'bold 24px Cinzel, serif'; ctx.textAlign = 'center'; ctx.fillText(title, canvas.width / 2, canvas.height / 2 - 10);
-      ctx.fillStyle = '#d4af6a'; ctx.font = '15px Lora, serif'; ctx.fillText(subtitle, canvas.width / 2, canvas.height / 2 + 20);
-    }
-    function drawScene() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(166, 124, 55, 0.16)'; ctx.beginPath(); ctx.arc(630, GROUND_Y - 65, 58, Math.PI, 0); ctx.fill(); ctx.fillRect(572, GROUND_Y - 65, 116, 65);
-      ctx.fillStyle = '#c9a36b'; ctx.fillRect(0, GROUND_Y, canvas.width, canvas.height - GROUND_Y);
-      ctx.strokeStyle = '#6b1d1d'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(0, GROUND_Y); ctx.lineTo(canvas.width, GROUND_Y); ctx.stroke();
-      drawChronicler(chronicler.x, chronicler.y, chronicler.bob); drawObstacles(); drawCollectibles();
-      if (invulnerableTimer % 8 < 5) drawExplorer(player.x, player.y, player.onGround, player.runCycle);
-      if (gameState === 'idle') drawOverlay('Jardín de Santa Inés', 'Pulsa "Jugar / Reiniciar" o presiona Espacio para comenzar');
-      else if (gameState === 'won') drawOverlay('¡Misión Cumplida!', `Reuniste los 5 pergaminos • Puntaje: ${score}`);
-      else if (gameState === 'lost') drawOverlay('¡Fin del Recorrido!', 'Pulsa "Jugar / Reiniciar" para intentarlo de nuevo');
-    }
-    function loopGame() { if (gameState !== 'playing') { drawScene(); return; } updateGame(); drawScene(); gameLoopId = requestAnimationFrame(loopGame); }
-    document.addEventListener('keydown', (e) => { if (e.code === 'Space' || e.code === 'ArrowUp') { if (document.activeElement.tagName !== 'BUTTON') { e.preventDefault(); triggerPlayerJump(); } } if (e.code === 'ArrowLeft') keys.left = true; if (e.code === 'ArrowRight') keys.right = true; });
-    document.addEventListener('keyup', (e) => { if (e.code === 'ArrowLeft') keys.left = false; if (e.code === 'ArrowRight') keys.right = false; });
-    canvas.addEventListener('pointerdown', triggerPlayerJump);
-    drawScene();
   </script>
 </body>
 </html>
