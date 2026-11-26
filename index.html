@@ -1,210 +1,1337 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jardín de Santa Inés — Centro Histórico de Puebla</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --parchment: #f4ebd8;
-      --parchment-light: #faf5ea;
-      --parchment-dark: #e6d5b8;
-      --burgundy: #6b1d1d;
-      --burgundy-dark: #4a1010;
-      --gold: #a67c37;
-      --gold-light: #d4af6a;
-      --espresso: #2c1e16;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardín de Santa Inés — Historia, cultura y tradición de Puebla</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Cormorant Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
-    body {
-      background-color: var(--parchment);
-      color: var(--espresso);
-      font-family: 'Lora', Georgia, serif;
-      background-image: 
-        radial-gradient(circle at 20% 20%, rgba(166, 124, 55, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(107, 29, 29, 0.07) 0%, transparent 50%);
-    }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        olive: {
+                            dark: '#27321e',
+                            deep: '#1c2415',
+                            medium: '#3a492d',
+                            light: '#546842'
+                        },
+                        cream: {
+                            DEFAULT: '#f2ead8',
+                            light: '#faf5ea',
+                            dark: '#dfd2b5',
+                            gold: '#c9b98c'
+                        },
+                        talavera: {
+                            blue: '#1c4478',
+                            cobalt: '#275ca1'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+                        garamond: ['"Cormorant Garamond"', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
 
-    h1, h2, h3, .font-cinzel {
-      font-family: 'Cinzel', Georgia, serif;
-    }
+    <style>
+        body {
+            background-color: #27321e;
+            color: #f2ead8;
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+        }
 
-    .font-playfair {
-      font-family: 'Playfair Display', Georgia, serif;
-    }
+        /* Escena atmosférica del Jardín de Santa Inés (casonas ocre y gris, vegetación frondosa) */
+        .santa-ines-scene {
+            background-image:
+                radial-gradient(circle at 50% 45%, rgba(39, 50, 30, 0.25) 0%, rgba(28, 36, 21, 0.88) 100%),
+                linear-gradient(to bottom, rgba(28, 36, 21, 0.92) 0%, rgba(39, 50, 30, 0.42) 28%, rgba(39, 50, 30, 0.35) 75%, rgba(28, 36, 21, 0.96) 100%),
+                url('https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?auto=format&fit=crop&w=1920&q=85');
+            background-size: cover;
+            background-position: center 35%;
+            background-attachment: fixed;
+        }
 
-    .baroque-card {
-      background-color: var(--parchment-light);
-      border: 2px solid var(--gold);
-      box-shadow: 0 8px 24px rgba(44, 30, 22, 0.08), inset 0 0 0 4px var(--parchment-light), inset 0 0 0 5px rgba(166, 124, 55, 0.4);
-      position: relative;
-    }
+        /* Cartela crema estilo colonial con textura pergamino y doble filete */
+        .colonial-plaque {
+            background-color: #f2ead8;
+            background-image:
+                radial-gradient(rgba(201, 185, 140, 0.22) 1px, transparent 0),
+                radial-gradient(rgba(39, 50, 30, 0.06) 1px, transparent 0);
+            background-size: 18px 18px;
+            background-position: 0 0, 9px 9px;
+            border: 2px solid #c9b98c;
+            box-shadow: 0 12px 26px -4px rgba(15, 20, 10, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+        }
 
-    .burgundy-ribbon {
-      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
-      color: #fdf6e7;
-      border: 1.5px solid var(--gold-light);
-      box-shadow: 0 4px 10px rgba(74, 16, 16, 0.25);
-    }
+        /* Marco lobulado para sostener cada objeto característico del parque */
+        .object-medallion {
+            border-radius: 52% 52% 26px 26px / 40% 40% 20px 20px;
+            background: radial-gradient(circle at 50% 35%, rgba(242, 234, 216, 0.22) 0%, rgba(39, 50, 30, 0.78) 85%);
+            border: 2px solid rgba(242, 234, 216, 0.85);
+            outline: 1.5px solid rgba(201, 185, 140, 0.55);
+            outline-offset: 4px;
+            box-shadow: 0 16px 34px rgba(12, 17, 9, 0.6), inset 0 0 24px rgba(201, 185, 140, 0.18);
+            backdrop-filter: blur(4px);
+        }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
-      color: #faf5ea;
-      border: 1.5px solid var(--gold-light);
-      transition: all 0.25s ease;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(107, 29, 29, 0.35);
-      background: linear-gradient(135deg, #7d2222 0%, var(--burgundy) 100%);
-    }
+        /* === ANIMACIONES CONTINUAS PARA LOS 6 OBJETOS DEL PARQUE === */
+        @keyframes objectFloatA {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-9px) rotate(0.6deg); }
+        }
+        @keyframes objectFloatB {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-11px) rotate(-0.6deg); }
+        }
+        @keyframes objectFloatC {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(0.4deg); }
+        }
 
-    .btn-secondary {
-      background-color: var(--parchment-light);
-      color: var(--burgundy);
-      border: 1.5px solid var(--burgundy);
-      transition: all 0.25s ease;
-    }
-    .btn-secondary:hover {
-      background-color: var(--burgundy);
-      color: #faf5ea;
-      transform: translateY(-2px);
-    }
+        /* 1. Chorros de agua de la fuente de cantera */
+        @keyframes fountainJet {
+            0%, 100% { stroke-dashoffset: 16; opacity: 0.95; transform: scaleY(1); }
+            50% { stroke-dashoffset: 0; opacity: 0.65; transform: scaleY(1.04); }
+        }
+        @keyframes waterRipple {
+            0%, 100% { transform: scaleX(0.95); opacity: 0.45; }
+            50% { transform: scaleX(1.08); opacity: 0.95; }
+        }
 
-    .timeline-tab.active {
-      background-color: var(--burgundy);
-      color: #faf5ea;
-      border-color: var(--gold-light);
-      box-shadow: 0 4px 12px rgba(107, 29, 29, 0.25);
-    }
+        /* 2. Mecido suave de banca y caída de pétalos/hojas */
+        @keyframes benchGentleSway {
+            0%, 100% { transform: rotate(-0.8deg) translateY(0px); }
+            50% { transform: rotate(0.8deg) translateY(-2px); }
+        }
+        @keyframes petalDrop {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            25% { opacity: 0.9; }
+            100% { transform: translate(12px, 34px) rotate(160deg); opacity: 0; }
+        }
 
-    /* Modo lectura */
-    body.reading-mode {
-      background-color: #fbf8f1;
-    }
-    body.reading-mode .prose-reading {
-      font-size: 1.18rem;
-      line-height: 1.95;
-      max-width: 72ch;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
+        /* 3. Copa del árbol centenario meciéndose con la brisa */
+        @keyframes treeCanopyBreeze {
+            0%, 100% { transform: skewX(-1.5deg) rotate(-1deg); }
+            50% { transform: skewX(1.8deg) rotate(1.2deg); }
+        }
+
+        /* 4. Destello cálido del farol colonial poblano */
+        @keyframes lanternGlow {
+            0%, 100% { opacity: 0.55; transform: scale(0.95); }
+            35% { opacity: 0.95; transform: scale(1.08); }
+            70% { opacity: 0.72; transform: scale(1.01); }
+        }
+
+        /* 5. Brillo de sol sobre el sendero de adoquín y setos */
+        @keyframes pathShimmer {
+            0%, 100% { opacity: 0.45; transform: translateX(-2px); }
+            50% { opacity: 0.95; transform: translateX(3px); }
+        }
+
+        /* 6. Rotación y destello de pieza de Talavera Poblana */
+        @keyframes talaveraSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Ramita de laurel y flecha en todas las cartelas */
+        @keyframes sprigSway {
+            0%, 100% { transform: rotate(-6deg); }
+            50% { transform: rotate(9deg); }
+        }
+        @keyframes arrowPulse {
+            0%, 100% { transform: translateX(0px); }
+            50% { transform: translateX(4px); }
+        }
+        @keyframes driftingLeaf {
+            0% { transform: translateY(-8vh) translateX(0px) rotate(0deg); opacity: 0; }
+            15% { opacity: 0.55; }
+            50% { transform: translateY(48vh) translateX(26px) rotate(150deg); opacity: 0.45; }
+            85% { opacity: 0.5; }
+            100% { transform: translateY(104vh) translateX(-18px) rotate(320deg); opacity: 0; }
+        }
+        @keyframes breatheCircle {
+            0%, 100% { transform: scale(0.88); opacity: 0.65; }
+            50% { transform: scale(1.18); opacity: 1; }
+        }
+
+        .anim-float-1 { animation: objectFloatA 5.4s ease-in-out infinite; }
+        .anim-float-2 { animation: objectFloatB 6.1s ease-in-out infinite 0.5s; }
+        .anim-float-3 { animation: objectFloatC 5.7s ease-in-out infinite 1.1s; }
+        .anim-float-4 { animation: objectFloatA 6.3s ease-in-out infinite 1.6s; }
+        .anim-float-5 { animation: objectFloatB 5.5s ease-in-out infinite 2.1s; }
+        .anim-float-6 { animation: objectFloatC 6.0s ease-in-out infinite 2.6s; }
+
+        .fountain-stream {
+            stroke-dasharray: 5 3;
+            animation: fountainJet 1.6s linear infinite;
+            transform-origin: center top;
+        }
+        .fountain-ripple {
+            animation: waterRipple 2.4s ease-in-out infinite;
+            transform-origin: center;
+        }
+        .bench-sway {
+            animation: benchGentleSway 4.2s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+        .petal-fall-1 { animation: petalDrop 3.6s ease-in infinite; }
+        .petal-fall-2 { animation: petalDrop 4.3s ease-in infinite 1.5s; }
+        .tree-canopy {
+            animation: treeCanopyBreeze 4.8s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+        .lantern-flame {
+            animation: lanternGlow 2.8s ease-in-out infinite;
+            transform-origin: center;
+        }
+        .path-glow {
+            animation: pathShimmer 3.8s ease-in-out infinite;
+        }
+        .talavera-wheel {
+            animation: talaveraSpin 22s linear infinite;
+            transform-origin: center;
+        }
+        .sprig-anim {
+            animation: sprigSway 3.2s ease-in-out infinite;
+            transform-origin: bottom left;
+        }
+        .arrow-anim {
+            animation: arrowPulse 2s ease-in-out infinite;
+        }
+        .footer-flower {
+            animation: sprigSway 4.6s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+        .mindfulness-orb {
+            animation: breatheCircle 8s ease-in-out infinite;
+        }
+
+        /* Pulso suave para el botón inicial "Iniciar" */
+        @keyframes startButtonPulse {
+            0%, 100% { transform: translateY(0px) scale(1); box-shadow: 0 14px 28px rgba(10, 14, 7, 0.65); }
+            50% { transform: translateY(-4px) scale(1.035); box-shadow: 0 20px 34px rgba(201, 185, 140, 0.35); }
+        }
+        .start-btn-anim {
+            animation: startButtonPulse 3s ease-in-out infinite;
+        }
+        .start-btn-anim:hover, .start-btn-anim:focus-visible {
+            animation-play-state: paused;
+            transform: translateY(-4px) scale(1.06);
+        }
+
+        /* Interacción al pasar el cursor / tocar cada objeto-botón */
+        .park-object-btn {
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+            cursor: pointer;
+            will-change: transform;
+        }
+        .park-object-btn:hover, .park-object-btn:focus-visible {
+            animation-play-state: paused;
+            transform: translateY(-12px) scale(1.04);
+            filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.65));
+        }
+        .park-object-btn:active {
+            transform: translateY(-4px) scale(0.99);
+        }
+        .park-object-btn:hover .object-medallion {
+            border-color: #ffffff;
+            box-shadow: 0 0 28px rgba(242, 234, 216, 0.65), inset 0 0 25px rgba(201, 185, 140, 0.35);
+        }
+        .park-object-btn:hover .arrow-circle {
+            background-color: #3a492d;
+            transform: scale(1.1);
+        }
+        .park-object-btn:hover .arrow-anim {
+            animation: none;
+            transform: translateX(4px);
+        }
+    </style>
 </head>
-<body class="antialiased selection:bg-[#6b1d1d] selection:text-[#faf5ea]">
+<body class="min-h-screen flex flex-col justify-between santa-ines-scene selection:bg-cream selection:text-olive-dark relative">
 
-  <!-- Portada Principal (Hero) -->
-  <section id="inicio" class="relative py-12 sm:py-16 px-4 border-b-2 border-[#a67c37]/50">
-    <div class="max-w-5xl mx-auto text-center">
-      <span class="burgundy-ribbon px-4 py-1.5 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase inline-block mb-3">Patrimonio Histórico</span>
-      <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold text-[#6b1d1d] mb-4">Jardín de Santa Inés</h1>
-      <p class="font-playfair text-lg sm:text-xl text-[#4a3728] italic max-w-2xl mx-auto">
-        Un oasis de memoria virreinal y barroca en el corazón de la Angelópolis (3 Sur y 9 Poniente).
-      </p>
+    <!-- Hojas flotantes atmosféricas del Jardín de Santa Inés -->
+    <div class="pointer-events-none fixed inset-0 z-10 overflow-hidden" aria-hidden="true">
+        <svg class="absolute left-[10%] w-4 h-4 text-cream/45" style="animation: driftingLeaf 17s linear infinite;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2 C7,6 5,13 12,22 C19,13 17,6 12,2 Z"/>
+        </svg>
+        <svg class="absolute left-[52%] w-3.5 h-3.5 text-cream-gold/45" style="animation: driftingLeaf 22s linear infinite 6s;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2 C7,6 5,13 12,22 C19,13 17,6 12,2 Z"/>
+        </svg>
+        <svg class="absolute left-[85%] w-4 h-4 text-cream/40" style="animation: driftingLeaf 19s linear infinite 11s;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2 C7,6 5,13 12,22 C19,13 17,6 12,2 Z"/>
+        </svg>
     </div>
-  </section>
-        
-  <!-- Sección: Infografía Original -->
-  <section id="infografia" class="py-14 px-4 bg-[#e6d5b8]/45 border-y-2 border-[#a67c37]/50">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-8">
-        <span class="text-xs uppercase tracking-[0.25em] text-[#a67c37] font-cinzel font-bold">Documento Gráfico</span>
-        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-[#6b1d1d] mt-1">Cedula patrimonial</h2>
-        <p class="text-sm sm:text-base text-[#4a3728] mt-2 max-w-xl mx-auto">
-          Explora el cartel completo del Jardín de Santa Inés o ábrelo en pantalla completa para leer cada detalle con acercamiento.
-        </p>
-      </div>
 
-      <div class="baroque-card p-4 sm:p-7 rounded-2xl max-w-3xl mx-auto">
-        <!-- Marco de la Imagen de la Infografía -->
-        <div class="relative overflow-hidden rounded-xl border-2 border-[#6b1d1d] bg-[#f4ebd8] shadow-inner group">
-          <img 
-            src="info.jpg"
-            alt="Infografía del Jardín de Santa Inés - Centro Histórico de Puebla" 
-            class="w-full h-auto object-contain mx-auto block transition duration-300 group-hover:scale-[1.01]"
-            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-10 text-center text-[#6b1d1d]\'><p class=\'font-cinzel font-bold text-lg mb-2\'>Aquí aparecerá tu imagen: info.jpg</p><p class=\'text-sm text-[#4a3728]\'>Guarda la foto de tu infografía con el nombre <strong>info.jpg</strong> en la misma carpeta que este archivo HTML y recarga la página.</p></div>';"
-          />
+    <!-- Ornamentos botánicos en esquinas superiores -->
+    <div class="pointer-events-none fixed top-0 left-0 z-10 opacity-80 w-28 sm:w-40 text-cream">
+        <svg viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M-5,10 C35,20 65,55 82,95" stroke-linecap="round"/>
+            <path d="M22,22 C35,8 52,10 56,22 C44,30 28,28 22,22 Z" fill="rgba(242,234,216,0.1)"/>
+            <path d="M44,44 C62,32 76,38 76,50 C62,56 48,50 44,44 Z" fill="rgba(242,234,216,0.1)"/>
+            <path d="M18,45 C6,60 12,78 24,80 C30,66 26,52 18,45 Z" fill="rgba(242,234,216,0.1)"/>
+            <path d="M62,68 C78,60 92,66 90,78 C76,82 66,75 62,68 Z" fill="rgba(242,234,216,0.1)"/>
+        </svg>
+    </div>
+    <div class="pointer-events-none fixed top-0 right-0 z-10 opacity-80 w-28 sm:w-40 text-cream transform scale-x-[-1]">
+        <svg viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M-5,15 C30,25 58,52 74,88" stroke-linecap="round"/>
+            <path d="M25,26 C38,12 54,15 57,26 C44,33 30,31 25,26 Z" fill="rgba(242,234,216,0.1)"/>
+            <path d="M48,48 C64,37 78,43 76,54 C62,59 51,53 48,48 Z" fill="rgba(242,234,216,0.1)"/>
+        </svg>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- 1. ENCABEZADO CON FACHADA BARROCA DEL TEMPLO DE SANTA INÉS            -->
+    <!-- ===================================================================== -->
+    <header id="top" class="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-8 pt-6 sm:pt-8 pb-2">
+        <div class="flex items-center justify-between gap-3">
+            <!-- Fachada Barroca de Santa Inés + Línea divisoria + Título -->
+            <div class="flex items-center gap-3 sm:gap-5 mx-auto sm:mx-0">
+                <!-- Ilustración lineal de la Fachada Barroca del Templo de Santa Inés (Puebla) -->
+                <div class="w-20 sm:w-28 md:w-32 flex-shrink-0 text-cream drop-shadow-md" aria-hidden="true">
+                    <svg viewBox="0 0 160 130" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Basamento -->
+                        <line x1="6" y1="122" x2="154" y2="122" stroke-width="2"/>
+                        <!-- Cuerpo izquierdo con espadaña / contrafuerte barroco -->
+                        <rect x="16" y="64" width="38" height="58"/>
+                        <path d="M16,64 Q24,48 35,54 Q46,48 54,64"/>
+                        <rect x="24" y="76" width="8" height="14" rx="4"/>
+                        <rect x="38" y="76" width="8" height="14" rx="4"/>
+                        <rect x="29" y="98" width="12" height="24" rx="6"/>
+
+                        <!-- Cuerpo derecho del templo -->
+                        <rect x="106" y="64" width="38" height="58"/>
+                        <path d="M106,64 Q115,48 125,54 Q135,48 144,64"/>
+                        <rect x="114" y="76" width="8" height="14" rx="4"/>
+                        <rect x="128" y="76" width="8" height="14" rx="4"/>
+                        <rect x="119" y="98" width="12" height="24" rx="6"/>
+
+                        <!-- Cuerpo central y portada barroca -->
+                        <rect x="54" y="54" width="52" height="68"/>
+                        <!-- Arco de acceso principal -->
+                        <path d="M68,122 L68,94 C68,85 92,85 92,94 L92,122"/>
+                        <path d="M72,122 L72,96 C72,90 88,90 88,96 L88,122" stroke-width="1.1"/>
+                        <!-- Ventana coral mixtilínea -->
+                        <rect x="73" y="64" width="14" height="16" rx="7"/>
+                        <circle cx="80" cy="72" r="3.5"/>
+
+                        <!-- Torre campanario central / lateral característica de Santa Inés -->
+                        <rect x="62" y="34" width="36" height="20"/>
+                        <path d="M69,54 L69,41 C69,37 77,37 77,41 L77,54"/>
+                        <path d="M83,54 L83,41 C83,37 91,37 91,41 L91,54"/>
+                        <!-- Segundo cuerpo de campanario y cupulín con cruz -->
+                        <rect x="68" y="18" width="24" height="16"/>
+                        <path d="M76,34 L76,23 C76,20 84,20 84,23 L84,34"/>
+                        <path d="M67,18 C72,9 88,9 93,18 Z"/>
+                        <line x1="80" y1="3" x2="80" y2="11"/>
+                        <line x1="76.5" y1="6.5" x2="83.5" y2="6.5"/>
+                    </svg>
+                </div>
+
+                <!-- Línea vertical separadora -->
+                <div class="h-16 sm:h-24 w-[1.5px] bg-cream/80 rounded-full"></div>
+
+                <!-- Título Principal -->
+                <div class="text-center">
+                    <p class="font-garamond text-cream text-lg sm:text-2xl md:text-3xl tracking-wide leading-none mb-0.5 drop-shadow">
+                        Parque de
+                    </p>
+                    <h1 class="font-serif font-bold text-cream text-4xl sm:text-5xl md:text-6xl tracking-tight leading-none drop-shadow-md">
+                        Santa Inés
+                    </h1>
+                    <span class="block text-xs sm:text-sm font-garamond uppercase tracking-[0.22em] text-cream-gold mt-1">
+                        Jardín de Santa Inés • Puebla
+                    </span>
+                </div>
+            </div>
+
+            <!-- Botón circular menú hamburguesa crema -->
+            <button id="menuToggleBtn" aria-label="Abrir menú de navegación"
+                class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cream text-olive-dark flex flex-col items-center justify-center gap-1.5 shadow-xl border-2 border-cream-gold hover:scale-105 hover:bg-cream-light active:scale-95 transition-all duration-300 flex-shrink-0 cursor-pointer">
+                <span class="w-5 sm:w-6 h-[2px] bg-olive-dark rounded-full"></span>
+                <span class="w-5 sm:w-6 h-[2px] bg-olive-dark rounded-full"></span>
+                <span class="w-5 sm:w-6 h-[2px] bg-olive-dark rounded-full"></span>
+            </button>
         </div>
 
-        <!-- Botón de Pantalla Completa -->
-        <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
-          <button onclick="openInfographicModal()" class="btn-primary px-6 py-2.5 rounded-full font-cinzel text-sm font-bold tracking-wider inline-flex items-center gap-2 cursor-pointer">
-            <span>🔍</span> Ampliar infografía en pantalla completa
-          </button>
+        <!-- Subtítulo con líneas laterales -->
+        <div class="flex items-center justify-center gap-3 sm:gap-4 mt-3 sm:mt-4 px-2">
+            <span class="h-[1px] w-8 sm:w-20 bg-cream/75"></span>
+            <p class="font-garamond italic text-cream text-base sm:text-xl md:text-2xl tracking-wide text-center drop-shadow">
+                Historia, cultura y tradición de Puebla
+            </p>
+            <span class="h-[1px] w-8 sm:w-20 bg-cream/75"></span>
         </div>
-      </div>
+
+        <!-- Portada inicial: Título destacado y botón "Iniciar" justo debajo -->
+        <div id="heroStartScreen" class="flex flex-col items-center justify-center text-center pt-10 sm:pt-14 pb-8 transition-all duration-500">
+            <p class="font-garamond italic text-cream-gold text-lg sm:text-2xl tracking-wide mb-2 drop-shadow">
+                Jardín de Santa Inés • Puebla
+            </p>
+            <h2 class="font-serif font-bold text-cream text-5xl sm:text-7xl md:text-8xl tracking-tight leading-none drop-shadow-[0_8px_22px_rgba(0,0,0,0.65)]">
+                Santa Inés
+            </h2>
+            <button id="startExploreBtn" type="button" onclick="enterGardenObjects()"
+                class="start-btn-anim colonial-plaque mt-7 sm:mt-9 px-10 sm:px-12 py-3.5 sm:py-4 rounded-full font-serif font-bold text-olive-dark text-xl sm:text-2xl tracking-wide inline-flex items-center gap-3 cursor-pointer">
+                <span>Iniciar</span>
+                <span class="arrow-circle w-9 h-9 rounded-full bg-olive-dark text-cream flex items-center justify-center">
+                    <svg class="arrow-anim w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- 2. LOS 6 BOTONES COMO OBJETOS CARACTERÍSTICOS DEL JARDÍN DE SANTA INÉS -->
+    <!-- ===================================================================== -->
+    <main id="gardenObjectsSection" class="hidden relative z-20 flex-grow w-full max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-10">
+        <div class="flex items-center justify-between mb-6 px-1">
+            <span class="font-garamond italic text-cream/90 text-base sm:text-lg">
+                Elige un objeto del jardín para explorar:
+            </span>
+            <button type="button" onclick="showHeroScreen()"
+                class="text-xs sm:text-sm font-serif px-4 py-1.5 rounded-full border border-cream/50 text-cream hover:bg-cream hover:text-olive-dark transition-colors cursor-pointer">
+                ← Portada
+            </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-11 items-center">
+
+            <!-- =============================================================== -->
+            <!-- OBJETO 1: LA FUENTE DE CANTERA COLONIAL -> CÉDULA PATRIMONIAL   -->
+            <!-- =============================================================== -->
+            <article onclick="openSectionModal('cedula')" role="button" tabindex="0"
+                onkeydown="if(event.key==='Enter'||event.key===' ') openSectionModal('cedula')"
+                aria-label="Fuente de Cantera Colonial: Abrir Cédula Patrimonial"
+                class="park-object-btn anim-float-1 group flex flex-col items-center w-full max-w-[330px] mx-auto">
+
+                <!-- Medallón con Objeto Animado: Fuente de Cantera con Chorros de Agua -->
+                <div class="object-medallion w-full h-52 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+                    <span class="absolute top-3 text-[11px] uppercase tracking-[0.2em] text-cream-gold/90 font-semibold">
+                        Fuente de Cantera
+                    </span>
+                    <svg class="w-40 h-40 text-cream drop-shadow-[0_6px_12px_rgba(0,0,0,0.5)] mt-2" viewBox="0 0 160 150" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Remate superior y chorro central -->
+                        <path d="M80,14 L80,26" stroke="#c9b98c" stroke-width="2"/>
+                        <ellipse cx="80" cy="29" rx="7" ry="4" fill="rgba(242,234,216,0.2)"/>
+                        <!-- Chorros de agua animados desde copa superior -->
+                        <path class="fountain-stream" d="M74,31 C60,34 54,48 53,62" stroke="#faf5ea" stroke-width="1.5"/>
+                        <path class="fountain-stream" d="M86,31 C100,34 106,48 107,62" stroke="#faf5ea" stroke-width="1.5"/>
+                        <path class="fountain-stream" d="M77,31 C69,36 65,48 64,62" stroke="#c9b98c" stroke-width="1.2"/>
+                        <path class="fountain-stream" d="M83,31 C91,36 95,48 96,62" stroke="#c9b98c" stroke-width="1.2"/>
+
+                        <!-- Tazón superior -->
+                        <path d="M56,36 L104,36 C101,46 92,50 80,50 C68,50 59,46 56,36 Z" fill="rgba(242,234,216,0.16)"/>
+                        <!-- Pedestal medio -->
+                        <path d="M74,50 L71,66 L89,66 L86,50 Z" fill="rgba(201,185,140,0.22)"/>
+
+                        <!-- Chorros de agua animados desde tazón intermedio -->
+                        <path class="fountain-stream" d="M44,68 C29,74 25,90 25,106" stroke="#faf5ea" stroke-width="1.6"/>
+                        <path class="fountain-stream" d="M116,68 C131,74 135,90 135,106" stroke="#faf5ea" stroke-width="1.6"/>
+                        <path class="fountain-stream" d="M53,69 C42,76 38,91 38,106" stroke="#c9b98c" stroke-width="1.2"/>
+                        <path class="fountain-stream" d="M107,69 C118,76 122,91 122,106" stroke="#c9b98c" stroke-width="1.2"/>
+
+                        <!-- Tazón intermedio amplio -->
+                        <path d="M40,66 L120,66 C115,80 100,86 80,86 C60,86 45,80 40,66 Z" fill="rgba(242,234,216,0.18)"/>
+                        <!-- Columna inferior labrada -->
+                        <path d="M70,86 L66,108 L94,108 L90,86 Z" fill="rgba(201,185,140,0.22)"/>
+
+                        <!-- Espejo de agua y ondas animadas -->
+                        <ellipse class="fountain-ripple" cx="80" cy="109" rx="58" ry="6" stroke="#faf5ea" stroke-width="1.3"/>
+                        <!-- Pilón octagonal inferior de cantera -->
+                        <path d="M16,109 L144,109 L138,128 L22,128 Z" fill="rgba(242,234,216,0.15)"/>
+                        <line x1="48" y1="109" x2="50" y2="128"/>
+                        <line x1="80" y1="109" x2="80" y2="128"/>
+                        <line x1="112" y1="109" x2="110" y2="128"/>
+                        <!-- Escalón base -->
+                        <rect x="10" y="128" width="140" height="7" rx="3" fill="rgba(201,185,140,0.28)"/>
+                    </svg>
+                </div>
+
+                <!-- Cartela Crema Colonial -->
+                <div class="colonial-plaque relative -mt-7 z-10 w-[94%] rounded-full px-3.5 py-2.5 flex items-center justify-between">
+                    <span class="sprig-anim text-olive-dark w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <path d="M6,27 C11,19 17,12 25,5"/>
+                            <path d="M11,20 C8,16 9,12 13,13 C14,16 13,19 11,20 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M16,15 C13,11 14,7 18,8 C19,11 18,14 16,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M14,21 C18,22 21,20 20,17 C17,17 15,19 14,21 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M19,15 C23,16 26,14 25,11 C22,11 20,13 19,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                        </svg>
+                    </span>
+                    <h2 class="font-serif font-bold text-olive-dark text-lg sm:text-xl leading-tight text-center px-2">
+                        Cédula<br>Patrimonial
+                    </h2>
+                    <span class="arrow-circle w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-olive-dark text-cream flex items-center justify-center flex-shrink-0 shadow-md transition-all">
+                        <svg class="arrow-anim w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <!-- =============================================================== -->
+            <!-- OBJETO 2: EL FAROL COLONIAL POBLANO -> CORTOMETRAJE             -->
+            <!-- =============================================================== -->
+            <article onclick="openSectionModal('cortometraje')" role="button" tabindex="0"
+                onkeydown="if(event.key==='Enter'||event.key===' ') openSectionModal('cortometraje')"
+                aria-label="Farol Colonial Poblano: Abrir Cortometraje"
+                class="park-object-btn anim-float-2 group flex flex-col items-center w-full max-w-[330px] mx-auto lg:mt-6">
+
+                <!-- Medallón con Objeto Animado: Farol de Hierro Forjado con Luz Cálida -->
+                <div class="object-medallion w-full h-52 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+                    <span class="absolute top-3 text-[11px] uppercase tracking-[0.2em] text-cream-gold/90 font-semibold">
+                        Farol Colonial
+                    </span>
+                    <svg class="w-40 h-40 text-cream drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)] mt-2" viewBox="0 0 160 150" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Halo luminoso animado -->
+                        <circle class="lantern-flame" cx="80" cy="52" r="28" fill="rgba(250, 224, 150, 0.25)" stroke="none"/>
+                        <circle class="lantern-flame" cx="80" cy="52" r="16" fill="rgba(255, 243, 200, 0.48)" stroke="none"/>
+
+                        <!-- Pináculo superior del farol -->
+                        <line x1="80" y1="12" x2="80" y2="21"/>
+                        <circle cx="80" cy="18" r="2.5" fill="currentColor"/>
+                        <!-- Capitel / techo hexagonal -->
+                        <polygon points="56,34 80,21 104,34" fill="rgba(201,185,140,0.28)"/>
+                        <line x1="52" y1="34" x2="108" y2="34" stroke-width="2"/>
+
+                        <!-- Cuerpo acristalado trapezoidal -->
+                        <polygon points="58,34 102,34 95,68 65,68" fill="rgba(250,245,234,0.16)"/>
+                        <line x1="72" y1="34" x2="74" y2="68"/>
+                        <line x1="88" y1="34" x2="86" y2="68"/>
+
+                        <!-- Llama interior del farol -->
+                        <path class="lantern-flame" d="M80,43 C84,49 85,55 80,59 C75,55 76,49 80,43 Z" fill="#faf5ea" stroke="#c9b98c" stroke-width="1.2"/>
+
+                        <!-- Ménsula y volutas de hierro forjado -->
+                        <path d="M62,68 L98,68 L90,76 L70,76 Z" fill="rgba(201,185,140,0.3)"/>
+                        <path d="M75,78 C62,78 58,88 66,92 C71,94 75,89 75,85" stroke-width="1.4"/>
+                        <path d="M85,78 C98,78 102,88 94,92 C89,94 85,89 85,85" stroke-width="1.4"/>
+
+                        <!-- Poste estriado de hierro fundido -->
+                        <rect x="76" y="76" width="8" height="48" fill="rgba(242,234,216,0.18)"/>
+                        <path d="M68,124 L92,124 L96,136 L64,136 Z" fill="rgba(201,185,140,0.3)"/>
+                    </svg>
+                </div>
+
+                <!-- Cartela Crema Colonial -->
+                <div class="colonial-plaque relative -mt-7 z-10 w-[94%] rounded-full px-3.5 py-3 flex items-center justify-between">
+                    <span class="sprig-anim text-olive-dark w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <path d="M6,27 C11,19 17,12 25,5"/>
+                            <path d="M11,20 C8,16 9,12 13,13 C14,16 13,19 11,20 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M16,15 C13,11 14,7 18,8 C19,11 18,14 16,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M14,21 C18,22 21,20 20,17 C17,17 15,19 14,21 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M19,15 C23,16 26,14 25,11 C22,11 20,13 19,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                        </svg>
+                    </span>
+                    <h2 class="font-serif font-bold text-olive-dark text-lg sm:text-xl leading-tight text-center px-2">
+                        Cortometraje
+                    </h2>
+                    <span class="arrow-circle w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-olive-dark text-cream flex items-center justify-center flex-shrink-0 shadow-md transition-all">
+                        <svg class="arrow-anim w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <!-- =============================================================== -->
+            <!-- OBJETO 3: EL ÁRBOL FRONDOSO CENTENARIO -> IDENTIDAD CULTURAL    -->
+            <!-- =============================================================== -->
+            <article onclick="openSectionModal('identidad')" role="button" tabindex="0"
+                onkeydown="if(event.key==='Enter'||event.key===' ') openSectionModal('identidad')"
+                aria-label="Árbol Frondoso Centenario: Abrir Identidad Cultural"
+                class="park-object-btn anim-float-3 group flex flex-col items-center w-full max-w-[330px] mx-auto">
+
+                <!-- Medallón con Objeto Animado: Árbol Centenario Meciéndose con la Brisa -->
+                <div class="object-medallion w-full h-52 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+                    <span class="absolute top-3 text-[11px] uppercase tracking-[0.2em] text-cream-gold/90 font-semibold">
+                        Árbol Centenario
+                    </span>
+                    <svg class="w-40 h-40 text-cream drop-shadow-[0_6px_12px_rgba(0,0,0,0.5)] mt-2" viewBox="0 0 160 150" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Copa frondosa animada con la brisa -->
+                        <g class="tree-canopy">
+                            <path d="M42,84 C26,82 20,66 32,56 C28,42 42,30 56,34 C64,20 94,20 102,34 C118,30 132,42 128,56 C140,66 134,82 118,84 Z"
+                                  fill="rgba(84, 104, 66, 0.55)"/>
+                            <!-- Textura de follaje interior -->
+                            <path d="M46,56 C54,48 66,50 70,58" stroke="#c9b98c" stroke-width="1.3"/>
+                            <path d="M88,52 C96,44 110,46 114,55" stroke="#c9b98c" stroke-width="1.3"/>
+                            <path d="M66,40 C74,32 86,32 94,40" stroke="#faf5ea" stroke-width="1.3"/>
+                            <path d="M52,70 C62,64 72,66 76,72" stroke="#faf5ea" stroke-width="1.2"/>
+                            <path d="M86,70 C94,64 106,65 110,72" stroke="#faf5ea" stroke-width="1.2"/>
+                        </g>
+
+                        <!-- Tronco robusto y raíces -->
+                        <path d="M66,132 C72,114 73,96 71,78 M94,132 C88,114 87,96 89,78" stroke-width="2.1"/>
+                        <path d="M74,92 L62,78 M86,90 L98,76 M80,96 L80,74" stroke-width="1.6"/>
+                        <!-- Prado en la base -->
+                        <path d="M36,133 C62,129 98,129 124,133" stroke="#c9b98c" stroke-width="1.8"/>
+                    </svg>
+                </div>
+
+                <!-- Cartela Crema Colonial -->
+                <div class="colonial-plaque relative -mt-7 z-10 w-[94%] rounded-full px-3.5 py-2.5 flex items-center justify-between">
+                    <span class="sprig-anim text-olive-dark w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <path d="M6,27 C11,19 17,12 25,5"/>
+                            <path d="M11,20 C8,16 9,12 13,13 C14,16 13,19 11,20 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M16,15 C13,11 14,7 18,8 C19,11 18,14 16,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M14,21 C18,22 21,20 20,17 C17,17 15,19 14,21 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M19,15 C23,16 26,14 25,11 C22,11 20,13 19,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                        </svg>
+                    </span>
+                    <h2 class="font-serif font-bold text-olive-dark text-lg sm:text-xl leading-tight text-center px-2">
+                        Identidad<br>Cultural
+                    </h2>
+                    <span class="arrow-circle w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-olive-dark text-cream flex items-center justify-center flex-shrink-0 shadow-md transition-all">
+                        <svg class="arrow-anim w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <!-- =============================================================== -->
+            <!-- OBJETO 4: BANCA DE MADERA Y HIERRO FORJADO -> MINDFULNESS       -->
+            <!-- =============================================================== -->
+            <article onclick="openSectionModal('mindfulness')" role="button" tabindex="0"
+                onkeydown="if(event.key==='Enter'||event.key===' ') openSectionModal('mindfulness')"
+                aria-label="Banca de Madera y Hierro Forjado: Abrir Mindfulness"
+                class="park-object-btn anim-float-4 group flex flex-col items-center w-full max-w-[330px] mx-auto">
+
+                <!-- Medallón con Objeto Animado: Banca Clásica con Hojas Cayendo -->
+                <div class="object-medallion w-full h-52 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+                    <span class="absolute top-3 text-[11px] uppercase tracking-[0.2em] text-cream-gold/90 font-semibold">
+                        Banca de Hierro y Madera
+                    </span>
+                    <svg class="w-40 h-40 text-cream drop-shadow-[0_6px_12px_rgba(0,0,0,0.5)] mt-2" viewBox="0 0 160 150" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Hojitas cayendo suavemente sobre la banca -->
+                        <path class="petal-fall-1" d="M45,28 C49,25 53,28 50,32 C47,33 44,31 45,28 Z" fill="#c9b98c" stroke="none"/>
+                        <path class="petal-fall-2" d="M108,24 C112,21 116,24 113,28 C110,29 107,27 108,24 Z" fill="#faf5ea" stroke="none"/>
+
+                        <g class="bench-sway">
+                            <!-- Respaldo de duelas de madera -->
+                            <rect x="30" y="52" width="100" height="8" rx="2" fill="rgba(201,185,140,0.32)"/>
+                            <rect x="30" y="64" width="100" height="8" rx="2" fill="rgba(201,185,140,0.26)"/>
+                            <rect x="30" y="76" width="100" height="7" rx="2" fill="rgba(201,185,140,0.22)"/>
+
+                            <!-- Asiento horizontal -->
+                            <path d="M24,88 L136,88 L140,98 L20,98 Z" fill="rgba(242,234,216,0.25)"/>
+                            <line x1="22" y1="93" x2="138" y2="93" stroke="#c9b98c" stroke-width="1.2"/>
+
+                            <!-- Descansabrazos y patas curvas de hierro forjado -->
+                            <path d="M30,48 L30,126 M130,48 L130,126" stroke-width="2.1"/>
+                            <path d="M22,74 C22,68 34,68 34,74 L34,98" stroke-width="1.8"/>
+                            <path d="M138,74 C138,68 126,68 126,74 L126,98" stroke-width="1.8"/>
+                            <!-- Volutas decorativas laterales -->
+                            <circle cx="26" cy="110" r="5" stroke="#c9b98c"/>
+                            <circle cx="134" cy="110" r="5" stroke="#c9b98c"/>
+                            <path d="M24,126 L36,126 M124,126 L136,126" stroke-width="2.2"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Cartela Crema Colonial -->
+                <div class="colonial-plaque relative -mt-7 z-10 w-[94%] rounded-full px-3.5 py-3 flex items-center justify-between">
+                    <span class="sprig-anim text-olive-dark w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <path d="M6,27 C11,19 17,12 25,5"/>
+                            <path d="M11,20 C8,16 9,12 13,13 C14,16 13,19 11,20 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M16,15 C13,11 14,7 18,8 C19,11 18,14 16,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M14,21 C18,22 21,20 20,17 C17,17 15,19 14,21 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M19,15 C23,16 26,14 25,11 C22,11 20,13 19,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                        </svg>
+                    </span>
+                    <h2 class="font-serif font-bold text-olive-dark text-lg sm:text-xl leading-tight text-center px-2">
+                        Mindfulness
+                    </h2>
+                    <span class="arrow-circle w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-olive-dark text-cream flex items-center justify-center flex-shrink-0 shadow-md transition-all">
+                        <svg class="arrow-anim w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <!-- =============================================================== -->
+            <!-- OBJETO 5: SENDERO DE ADOQUÍN Y JARDINERAS -> INFOGRAFÍA         -->
+            <!-- =============================================================== -->
+            <article onclick="openSectionModal('infografia')" role="button" tabindex="0"
+                onkeydown="if(event.key==='Enter'||event.key===' ') openSectionModal('infografia')"
+                aria-label="Sendero de Adoquín y Jardineras: Abrir Infografía"
+                class="park-object-btn anim-float-5 group flex flex-col items-center w-full max-w-[330px] mx-auto lg:mt-6">
+
+                <!-- Medallón con Objeto Animado: Camino Curvo de Adoquín y Setos -->
+                <div class="object-medallion w-full h-52 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+                    <span class="absolute top-3 text-[11px] uppercase tracking-[0.2em] text-cream-gold/90 font-semibold">
+                        Sendero y Jardineras
+                    </span>
+                    <svg class="w-40 h-40 text-cream drop-shadow-[0_6px_12px_rgba(0,0,0,0.5)] mt-2" viewBox="0 0 160 150" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Setos recortados laterales -->
+                        <path d="M18,125 C18,98 42,84 62,74 C52,66 30,72 18,86 Z" fill="rgba(84,104,66,0.55)"/>
+                        <path d="M142,125 C142,98 118,84 98,74 C108,66 130,72 142,86 Z" fill="rgba(84,104,66,0.55)"/>
+
+                        <!-- Camino curvo de adoquín en perspectiva -->
+                        <path d="M36,132 C46,102 68,84 74,52 L88,52 C92,84 116,102 126,132 Z" fill="rgba(242,234,216,0.2)"/>
+                        <!-- Líneas de adoquines con destello animado -->
+                        <g class="path-glow" stroke="#c9b98c" stroke-width="1.4">
+                            <path d="M68,66 Q80,63 93,66"/>
+                            <path d="M60,82 Q80,78 101,82"/>
+                            <path d="M50,100 Q80,95 111,100"/>
+                            <path d="M41,118 Q80,112 120,118"/>
+                            <line x1="80" y1="54" x2="80" y2="130" stroke-dasharray="4 5"/>
+                        </g>
+
+                        <!-- Arbustos floridos al fondo -->
+                        <circle cx="56" cy="54" r="11" fill="rgba(201,185,140,0.25)"/>
+                        <circle cx="104" cy="54" r="11" fill="rgba(201,185,140,0.25)"/>
+                    </svg>
+                </div>
+
+                <!-- Cartela Crema Colonial -->
+                <div class="colonial-plaque relative -mt-7 z-10 w-[94%] rounded-full px-3.5 py-3 flex items-center justify-between">
+                    <span class="sprig-anim text-olive-dark w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <path d="M6,27 C11,19 17,12 25,5"/>
+                            <path d="M11,20 C8,16 9,12 13,13 C14,16 13,19 11,20 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M16,15 C13,11 14,7 18,8 C19,11 18,14 16,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M14,21 C18,22 21,20 20,17 C17,17 15,19 14,21 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M19,15 C23,16 26,14 25,11 C22,11 20,13 19,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                        </svg>
+                    </span>
+                    <h2 class="font-serif font-bold text-olive-dark text-lg sm:text-xl leading-tight text-center px-2">
+                        Infografía
+                    </h2>
+                    <span class="arrow-circle w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-olive-dark text-cream flex items-center justify-center flex-shrink-0 shadow-md transition-all">
+                        <svg class="arrow-anim w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+            <!-- =============================================================== -->
+            <!-- OBJETO 6: MEDALLÓN DE TALAVERA POBLANA -> JUEGO INTERACTIVO     -->
+            <!-- =============================================================== -->
+            <article onclick="openSectionModal('juego')" role="button" tabindex="0"
+                onkeydown="if(event.key==='Enter'||event.key===' ') openSectionModal('juego')"
+                aria-label="Medallón de Talavera Poblana: Abrir Juego Interactivo"
+                class="park-object-btn anim-float-6 group flex flex-col items-center w-full max-w-[330px] mx-auto">
+
+                <!-- Medallón con Objeto Animado: Rosetón de Talavera Poblana Girando -->
+                <div class="object-medallion w-full h-52 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+                    <span class="absolute top-3 text-[11px] uppercase tracking-[0.2em] text-cream-gold/90 font-semibold">
+                        Talavera Poblana
+                    </span>
+                    <svg class="w-40 h-40 text-cream drop-shadow-[0_6px_14px_rgba(0,0,0,0.55)] mt-2" viewBox="0 0 160 150" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <g class="talavera-wheel">
+                            <!-- Círculo exterior festoneado -->
+                            <circle cx="80" cy="76" r="46" fill="rgba(28, 68, 120, 0.55)" stroke="#faf5ea" stroke-width="2"/>
+                            <circle cx="80" cy="76" r="39" stroke="#c9b98c" stroke-dasharray="4 3"/>
+
+                            <!-- Pétalos cardinales y diagonales de Talavera Azul y Oro -->
+                            <path d="M80,32 C87,46 87,58 80,66 C73,58 73,46 80,32 Z" fill="#faf5ea"/>
+                            <path d="M80,120 C87,106 87,94 80,86 C73,94 73,106 80,120 Z" fill="#faf5ea"/>
+                            <path d="M36,76 C50,69 62,69 70,76 C62,83 50,83 36,76 Z" fill="#faf5ea"/>
+                            <path d="M124,76 C110,69 98,69 90,76 C98,83 110,83 124,76 Z" fill="#faf5ea"/>
+
+                            <!-- Pétalos diagonales dorados -->
+                            <path d="M49,45 C61,51 68,58 72,68 C62,64 55,57 49,45 Z" fill="#c9b98c"/>
+                            <path d="M111,45 C99,51 92,58 88,68 C98,64 105,57 111,45 Z" fill="#c9b98c"/>
+                            <path d="M49,107 C61,101 68,94 72,84 C62,88 55,95 49,107 Z" fill="#c9b98c"/>
+                            <path d="M111,107 C99,101 92,94 88,84 C98,88 105,95 111,107 Z" fill="#c9b98c"/>
+
+                            <!-- Centro floral -->
+                            <circle cx="80" cy="76" r="11" fill="#1c4478" stroke="#faf5ea" stroke-width="1.8"/>
+                            <circle cx="80" cy="76" r="4.5" fill="#c9b98c" stroke="none"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Cartela Crema Colonial -->
+                <div class="colonial-plaque relative -mt-7 z-10 w-[94%] rounded-full px-3.5 py-2.5 flex items-center justify-between">
+                    <span class="sprig-anim text-olive-dark w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <path d="M6,27 C11,19 17,12 25,5"/>
+                            <path d="M11,20 C8,16 9,12 13,13 C14,16 13,19 11,20 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M16,15 C13,11 14,7 18,8 C19,11 18,14 16,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M14,21 C18,22 21,20 20,17 C17,17 15,19 14,21 Z" fill="currentColor" fill-opacity="0.22"/>
+                            <path d="M19,15 C23,16 26,14 25,11 C22,11 20,13 19,15 Z" fill="currentColor" fill-opacity="0.22"/>
+                        </svg>
+                    </span>
+                    <h2 class="font-serif font-bold text-olive-dark text-lg sm:text-xl leading-tight text-center px-2">
+                        Juego<br>Interactivo
+                    </h2>
+                    <span class="arrow-circle w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-olive-dark text-cream flex items-center justify-center flex-shrink-0 shadow-md transition-all">
+                        <svg class="arrow-anim w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- 5. PIE DE PÁGINA ONDULADO CON FLOR EN CREMA Y BOTÓN VOLVER ARRIBA     -->
+    <!-- ===================================================================== -->
+    <footer class="relative z-20 w-full mt-8">
+        <!-- Onda SVG Superior con Doble Filete Crema -->
+        <div class="w-full overflow-hidden leading-none -mb-1">
+            <svg viewBox="0 0 1440 96" fill="none" preserveAspectRatio="none" class="w-full h-12 sm:h-16">
+                <path d="M0,34 C240,88 480,6 720,44 C960,82 1200,20 1440,50 L1440,96 L0,96 Z" fill="#1c2415"/>
+                <path d="M0,34 C240,88 480,6 720,44 C960,82 1200,20 1440,50" stroke="#f2ead8" stroke-width="3.5" fill="none"/>
+                <path d="M0,43 C240,97 480,15 720,53 C960,91 1200,29 1440,59" stroke="#c9b98c" stroke-opacity="0.6" stroke-width="1.3" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="bg-[#1c2415] text-cream px-4 sm:px-8 pt-2 pb-6 sm:pb-8 relative">
+            <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+                <!-- Flor botánica dibujada en trazo crema meciéndose -->
+                <div class="footer-flower w-14 h-14 sm:w-20 sm:h-20 text-cream/90 flex-shrink-0" aria-hidden="true">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22,95 C26,75 34,60 44,48"/>
+                        <path d="M28,76 C16,74 12,64 20,60 C26,62 29,70 28,76 Z"/>
+                        <path d="M33,66 C44,68 50,60 43,54 C37,55 34,61 33,66 Z"/>
+                        <path d="M44,48 C34,36 38,20 50,24 C56,14 70,18 68,30 C80,32 80,46 68,50 C72,60 60,68 52,58 C44,64 36,56 44,48 Z"/>
+                        <circle cx="55" cy="39" r="5"/>
+                    </svg>
+                </div>
+
+                <!-- Frase en cursiva -->
+                <p class="font-garamond italic text-cream text-base sm:text-xl md:text-2xl text-center leading-snug max-w-md mx-auto">
+                    Conoce, descubre y disfruta<br>
+                    este hermoso rincón de Puebla ♡
+                </p>
+
+                <!-- Botón circular volver arriba -->
+                <button onclick="scrollToTop()" aria-label="Volver arriba"
+                    class="group w-11 h-11 sm:w-12 sm:h-12 rounded-full border-2 border-cream/85 text-cream flex items-center justify-center flex-shrink-0 hover:bg-cream hover:text-olive-dark transition-all duration-300 shadow-md cursor-pointer">
+                    <svg class="w-5 h-5 transform group-hover:-translate-y-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                        <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- MENÚ LATERAL DESPLEGABLE (HAMBURGUESA)                                 -->
+    <!-- ===================================================================== -->
+    <div id="sideMenuOverlay" class="fixed inset-0 z-50 hidden">
+        <div onclick="toggleMenu(false)" class="absolute inset-0 bg-black/70 backdrop-blur-xs"></div>
+        <aside id="sideMenuPanel" class="absolute top-0 right-0 h-full w-80 max-w-[86vw] bg-olive-dark border-l-2 border-cream-gold/50 p-6 sm:p-7 flex flex-col justify-between text-cream shadow-2xl transform translate-x-full transition-transform duration-300 overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between border-b border-cream/25 pb-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-cream-gold block">9 Poniente y 3 Sur • Puebla</span>
+                        <h3 class="font-serif font-bold text-2xl text-cream">Jardín de Santa Inés</h3>
+                    </div>
+                    <button onclick="toggleMenu(false)" aria-label="Cerrar menú"
+                        class="w-10 h-10 rounded-full border border-cream/50 flex items-center justify-center hover:bg-cream hover:text-olive-dark transition-colors cursor-pointer">
+                        ✕
+                    </button>
+                </div>
+
+                <nav class="mt-6 space-y-2">
+                    <button onclick="toggleMenu(false); openSectionModal('cedula')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-cream/10 border border-transparent hover:border-cream/30 transition-all flex items-center justify-between group cursor-pointer">
+                        <div>
+                            <span class="font-serif text-lg block">Cédula Patrimonial</span>
+                            <span class="text-xs italic text-cream-gold">Fuente de Cantera Colonial</span>
+                        </div>
+                        <span class="text-cream-gold group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="toggleMenu(false); openSectionModal('cortometraje')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-cream/10 border border-transparent hover:border-cream/30 transition-all flex items-center justify-between group cursor-pointer">
+                        <div>
+                            <span class="font-serif text-lg block">Cortometraje</span>
+                            <span class="text-xs italic text-cream-gold">Farol Colonial Poblano</span>
+                        </div>
+                        <span class="text-cream-gold group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="toggleMenu(false); openSectionModal('identidad')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-cream/10 border border-transparent hover:border-cream/30 transition-all flex items-center justify-between group cursor-pointer">
+                        <div>
+                            <span class="font-serif text-lg block">Identidad Cultural</span>
+                            <span class="text-xs italic text-cream-gold">Árbol Frondoso Centenario</span>
+                        </div>
+                        <span class="text-cream-gold group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="toggleMenu(false); openSectionModal('mindfulness')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-cream/10 border border-transparent hover:border-cream/30 transition-all flex items-center justify-between group cursor-pointer">
+                        <div>
+                            <span class="font-serif text-lg block">Mindfulness</span>
+                            <span class="text-xs italic text-cream-gold">Banca de Madera y Hierro</span>
+                        </div>
+                        <span class="text-cream-gold group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="toggleMenu(false); openSectionModal('infografia')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-cream/10 border border-transparent hover:border-cream/30 transition-all flex items-center justify-between group cursor-pointer">
+                        <div>
+                            <span class="font-serif text-lg block">Infografía</span>
+                            <span class="text-xs italic text-cream-gold">Sendero de Adoquín y Setos</span>
+                        </div>
+                        <span class="text-cream-gold group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                    <button onclick="toggleMenu(false); openSectionModal('juego')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-cream/10 border border-transparent hover:border-cream/30 transition-all flex items-center justify-between group cursor-pointer">
+                        <div>
+                            <span class="font-serif text-lg block">Juego Interactivo</span>
+                            <span class="text-xs italic text-cream-gold">Medallón de Talavera</span>
+                        </div>
+                        <span class="text-cream-gold group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                </nav>
+            </div>
+
+            <div class="border-t border-cream/25 pt-4 mt-4 text-sm font-garamond italic text-cream/80">
+                <p>Plazuela del Ex-Convento de Santa Inés de Monte Pulciano, Centro Histórico de Puebla.</p>
+            </div>
+        </aside>
     </div>
-  </section>
 
-  <!-- Pie de Página -->
-  <footer class="py-10 px-4">
-    <div class="max-w-5xl mx-auto pt-6 border-t border-[#a67c37]/30 text-center text-xs text-[#a67c37] font-cinzel tracking-widest">
-      Jardín de Santa Inés • Centro Histórico de Puebla
-    </div>
-  </footer>
-
-  <!-- Modal Visor de Infografía con Zoom -->
-  <div id="infographicModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex flex-col">
-    <!-- Barra de Controles del Visor -->
-    <div class="flex items-center justify-between px-4 py-3 bg-[#2c1e16] text-[#faf5ea] border-b border-[#a67c37]">
-      <span class="font-cinzel text-sm sm:text-base font-bold text-[#d4af6a]">Infografía — Jardín de Santa Inés</span>
-      <div class="flex items-center gap-2">
-        <button onclick="zoomImage(-0.2)" class="px-3 py-1 rounded bg-[#6b1d1d] hover:bg-[#8a2626] text-sm font-bold border border-[#d4af6a] cursor-pointer" title="Alejar">−</button>
-        <button onclick="resetZoom()" class="px-3 py-1 rounded bg-[#4a1010] hover:bg-[#6b1d1d] text-xs font-cinzel border border-[#a67c37] cursor-pointer">100%</button>
-        <button onclick="zoomImage(0.2)" class="px-3 py-1 rounded bg-[#6b1d1d] hover:bg-[#8a2626] text-sm font-bold border border-[#d4af6a] cursor-pointer" title="Acercar">+</button>
-        <button onclick="closeInfographicModal()" class="ml-2 px-3.5 py-1 rounded bg-[#d4af6a] text-[#2c1e16] font-cinzel font-bold text-xs hover:bg-[#e5c483] cursor-pointer">Cerrar ✕</button>
-      </div>
+    <!-- ===================================================================== -->
+    <!-- MODAL ESTILO PERGAMINO PARA CADA SECCIÓN                              -->
+    <!-- ===================================================================== -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6">
+        <div onclick="closeSectionModal()" class="absolute inset-0 bg-olive-deep/85 backdrop-blur-sm"></div>
+        <div class="relative z-10 w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-3xl colonial-plaque text-olive-dark p-6 sm:p-8 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-olive-dark/20 pb-4 mb-5">
+                <button onclick="closeSectionModal()"
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-olive-dark text-cream text-sm font-serif hover:bg-olive-medium transition-colors cursor-pointer">
+                    <span>←</span> Volver al Jardín
+                </button>
+                <span id="modalBadge" class="text-xs uppercase tracking-widest font-bold text-olive-medium px-3 py-1 rounded-full bg-olive-dark/10">
+                    Centro Histórico • Puebla
+                </span>
+            </div>
+            <div id="modalBodyContent"></div>
+        </div>
     </div>
 
-    <!-- Contenedor con Scroll para la Imagen -->
-    <div class="flex-1 overflow-auto flex items-center justify-center p-4">
-      <img 
-        id="modalInfographicImg" 
-        src="info.jpg" 
-        alt="Infografía ampliada del Jardín de Santa Inés" 
-        class="max-h-[85vh] w-auto transition-transform duration-200 origin-center rounded shadow-2xl"
-      />
-    </div>
-  </div>
+    <!-- ===================================================================== -->
+    <!-- LÓGICA INTERACTIVA, TEMPORIZADOR MINDFULNESS Y JUEGO DE MEMORIA       -->
+    <!-- ===================================================================== -->
+    <script>
+        const sectionsData = {
+            cedula: {
+                badge: 'Fuente de Cantera • Cédula Patrimonial',
+                title: 'Cédula Patrimonial: Jardín de Santa Inés',
+                subtitle: 'Antigua plazuela conventual en 9 Poniente y 3 Sur, Centro Histórico de Puebla',
+                html: `
+                    <div class="space-y-4 font-garamond text-lg leading-relaxed">
+                        <p>
+                            Ubicado en la intersección de las calles <strong>9 Poniente y 3 Sur</strong>, el <strong>Jardín de Santa Inés</strong> ocupa el espacio de la histórica plazuela frente al antiguo Convento de Religiosas Dominicas de Santa Inés de Monte Pulciano, fundado en el siglo XVII en la Angelópolis.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+                            <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-3.5">
+                                <span class="text-xs uppercase tracking-wider text-olive-medium font-bold block">Ubicación Exacta</span>
+                                <span class="font-serif font-bold text-base">Calle 9 Poniente y 3 Sur, Centro Histórico, Puebla</span>
+                            </div>
+                            <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-3.5">
+                                <span class="text-xs uppercase tracking-wider text-olive-medium font-bold block">Trazado y Mobiliario</span>
+                                <span class="font-serif font-bold text-base">Estilo neoclásico/porfiriano: fuente de cantera, bancas y faroles</span>
+                            </div>
+                        </div>
+                        <p>
+                            Su trazado simétrico de andadores radiales converge en la <strong>fuente central de cantera labrada</strong>, rodeada por jardineras con setos recortados, faroles de hierro fundido y bancas clásicas de madera y hierro forjado que dialogan con la arquitectura barroca poblana del entorno.
+                        </p>
+                    </div>
+                `
+            },
+            cortometraje: {
+                badge: 'Farol Colonial • Documental 03:45',
+                title: 'Cortometraje: Luces y Agua en Santa Inés',
+                subtitle: 'Atmósfera sonora del murmullo de la fuente y el caer de la tarde en Puebla',
+                html: `
+                    <div class="space-y-4 font-garamond text-lg">
+                        <div class="relative rounded-2xl overflow-hidden border-2 border-olive-dark/35 bg-olive-deep aspect-video flex flex-col items-center justify-center text-cream p-6 text-center shadow-inner">
+                            <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,#c9b98c_0%,transparent_70%)]"></div>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <button id="playShortBtn" onclick="toggleShortFilm()"
+                                    class="w-16 h-16 rounded-full bg-cream text-olive-dark flex items-center justify-center text-2xl shadow-xl hover:scale-110 transition-transform cursor-pointer mb-3">
+                                    ▶
+                                </button>
+                                <p id="shortFilmStatus" class="font-serif text-xl font-bold">Iniciar proyección documental</p>
+                                <p id="shortFilmTimecode" class="text-sm italic text-cream-gold mt-1">00:00 / 03:45 • Registro patrimonial en 9 Poniente y 3 Sur</p>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 h-2 bg-cream/20">
+                                <div id="shortFilmProgress" class="h-full bg-cream-gold w-0 transition-all duration-200"></div>
+                            </div>
+                        </div>
+                        <p class="leading-relaxed">
+                            Cuando se encienden los <strong>faroles coloniales</strong> del Jardín de Santa Inés, la luz cálida acaricia la piedra de cantera y las fachadas de ladrillo y talavera. Este cortometraje captura las voces de los vecinos, el repique lejano de las campanas y el fluir constante de su fuente.
+                        </p>
+                    </div>
+                `
+            },
+            identidad: {
+                badge: 'Árbol Centenario • Identidad Cultural',
+                title: 'Identidad Cultural y Memoria del Barrio',
+                subtitle: 'Tradición vecinal, patrimonio vivo y sabor poblano alrededor de Santa Inés',
+                html: `
+                    <div class="space-y-4 font-garamond text-lg leading-relaxed">
+                        <p>
+                            A la sombra de los <strong>árboles centenarios</strong> del Jardín de Santa Inés se teje la vida cotidiana del barrio histórico: tertulias de sobremesa, lectura tranquila y el paso pausado de quienes recorren el corazón de Puebla.
+                        </p>
+                        <ul class="space-y-2.5 my-3">
+                            <li class="flex items-start gap-2.5 bg-olive-dark/5 p-3 rounded-xl border border-olive-dark/15">
+                                <span class="text-olive-dark font-bold">✦</span>
+                                <span><strong>Convivencia y Tradición:</strong> Punto de reunión tradicional durante festividades religiosas, serenatas y paseos dominicales del Centro Histórico.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 bg-olive-dark/5 p-3 rounded-xl border border-olive-dark/15">
+                                <span class="text-olive-dark font-bold">✦</span>
+                                <span><strong>Gastronomía Poblana Cercana:</strong> Sus calles aledañas resguardan panaderías tradicionales, dulces típicos de convento y fondas emblemáticas de cocina poblana.</span>
+                            </li>
+                        </ul>
+                    </div>
+                `
+            },
+            mindfulness: {
+                badge: 'Banca de Hierro y Madera • Mindfulness',
+                title: 'Pausa Contemplativa en Santa Inés',
+                subtitle: 'Escucha el agua de la fuente y la brisa en los árboles de Santa Inés',
+                html: `
+                    <div class="space-y-4 font-garamond text-lg">
+                        <p class="leading-relaxed">
+                            Imagina tomar asiento en una de las <strong>bancas de madera y hierro forjado</strong> del jardín. Sigue el círculo de respiración guiada mientras el temporizador acompaña tu pausa:
+                        </p>
+                        <div class="my-4 py-6 px-4 rounded-2xl bg-olive-dark text-cream flex flex-col items-center justify-center text-center shadow-inner">
+                            <div class="w-28 h-28 rounded-full border-2 border-cream-gold flex flex-col items-center justify-center mindfulness-orb bg-cream/10 mb-3">
+                                <span id="breathInstruction" class="font-serif text-base font-bold">Inhala...</span>
+                                <span id="mindfulnessClock" class="text-xs text-cream-gold mt-0.5">01:00</span>
+                            </div>
+                            <button id="mindfulnessToggleBtn" onclick="toggleMindfulnessTimer()"
+                                class="mt-2 px-5 py-1.5 rounded-full bg-cream text-olive-dark font-serif text-sm font-bold hover:bg-cream-light transition-colors cursor-pointer">
+                                Iniciar Sesión de 1 Minuto
+                            </button>
+                            <p class="mt-3 italic text-cream/85 text-base max-w-md">
+                                "Escucha el agua de la fuente y la brisa en los árboles de Santa Inés."
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            infografia: {
+                badge: 'Sendero de Adoquín • Infografía',
+                title: 'Infografía del Jardín de Santa Inés',
+                subtitle: 'Anatomía arquitectónica, flora urbana y cronología histórica',
+                html: `
+                    <div class="space-y-4 font-garamond text-lg">
+                        <!-- Datos Clave en Tarjetas -->
+                        <div class="grid grid-cols-3 gap-2.5 text-center">
+                            <div class="bg-olive-dark text-cream rounded-2xl p-3">
+                                <span class="font-serif font-bold text-2xl text-cream-gold block">S. XVII</span>
+                                <span class="text-xs uppercase tracking-wider">Origen Plazuela</span>
+                            </div>
+                            <div class="bg-olive-dark text-cream rounded-2xl p-3">
+                                <span class="font-serif font-bold text-2xl text-cream-gold block">4</span>
+                                <span class="text-xs uppercase tracking-wider">Andadores Radiales</span>
+                            </div>
+                            <div class="bg-olive-dark text-cream rounded-2xl p-3">
+                                <span class="font-serif font-bold text-2xl text-cream-gold block">1987</span>
+                                <span class="text-xs uppercase tracking-wider">Patrimonio UNESCO</span>
+                            </div>
+                        </div>
 
-  <script>
-    // Visor Modal con Zoom
-    let currentZoom = 1;
+                        <!-- Elementos Arquitectónicos y Flora -->
+                        <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-4 space-y-2">
+                            <h4 class="font-serif font-bold text-olive-dark text-lg">Materiales y Paisaje Urbano</h4>
+                            <p class="text-base"><strong>• Cantera Gris y Laja:</strong> Presente en la fuente central, guarniciones y senderos empedrados.</p>
+                            <p class="text-base"><strong>• Hierro Forjado y Fundido:</strong> Bancas clásicas con volutas y faroles de iluminación peatonal.</p>
+                            <p class="text-base"><strong>• Flora del Jardín:</strong> Laureles de la India, fresnos, setos de boj recortados y rosales ornamentales.</p>
+                        </div>
 
-    function openInfographicModal() {
-      currentZoom = 1;
-      updateZoom();
-      document.getElementById('infographicModal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
+                        <!-- Línea del Tiempo -->
+                        <div class="border-l-2 border-olive-dark pl-4 space-y-2.5 ml-2">
+                            <div>
+                                <span class="font-serif font-bold text-olive-dark">1626 — Fundación Conventual:</span>
+                                <span class="text-base"> Establecimiento del templo y plazuela de Santa Inés de Monte Pulciano.</span>
+                            </div>
+                            <div>
+                                <span class="font-serif font-bold text-olive-dark">Finales S. XIX — Jardín Ajardinado:</span>
+                                <span class="text-base"> Incorporación de trazado geométrico, jardineras, bancas y faroles.</span>
+                            </div>
+                            <div>
+                                <span class="font-serif font-bold text-olive-dark">Actualidad — Espacio Cultural Vivo:</span>
+                                <span class="text-base"> Punto de encuentro patrimonial y descanso en el Centro Histórico de Puebla.</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            juego: {
+                badge: 'Talavera Poblana • Juego Interactivo',
+                title: 'Memoria Patrimonial de Santa Inés',
+                subtitle: 'Encuentra los 4 pares de elementos emblemáticos del jardín',
+                html: `
+                    <div class="space-y-4 font-garamond text-lg">
+                        <div class="flex items-center justify-between bg-olive-dark/10 px-4 py-2 rounded-2xl">
+                            <span id="gameScoreLabel" class="font-serif font-bold text-olive-dark">Pares encontrados: 0 / 4</span>
+                            <button onclick="initMemoryGame()" class="px-3 py-1 rounded-full bg-olive-dark text-cream text-xs font-serif hover:bg-olive-medium cursor-pointer">
+                                Reiniciar Tablero
+                            </button>
+                        </div>
+                        <div id="memoryBoard" class="grid grid-cols-4 gap-2.5 sm:gap-3"></div>
+                        <p id="gameFeedback" class="text-center italic text-olive-medium text-base">
+                            Voltea dos medallones de Talavera para descubrir los tesoros del Jardín de Santa Inés.
+                        </p>
+                    </div>
+                `
+            }
+        };
 
-    function closeInfographicModal() {
-      document.getElementById('infographicModal').classList.add('hidden');
-      document.body.style.overflow = '';
-    }
+        let activeInterval = null;
 
-    function zoomImage(delta) {
-      currentZoom = Math.min(Math.max(0.6, currentZoom + delta), 2.6);
-      updateZoom();
-    }
+        // Menú lateral hamburguesa
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        const sideMenuOverlay = document.getElementById('sideMenuOverlay');
+        const sideMenuPanel = document.getElementById('sideMenuPanel');
 
-    function resetZoom() {
-      currentZoom = 1;
-      updateZoom();
-    }
+        menuToggleBtn.addEventListener('click', () => toggleMenu(true));
 
-    function updateZoom() {
-      document.getElementById('modalInfographicImg').style.transform = `scale(${currentZoom})`;
-    }
+        function toggleMenu(open) {
+            if (open) {
+                sideMenuOverlay.classList.remove('hidden');
+                requestAnimationFrame(() => sideMenuPanel.classList.remove('translate-x-full'));
+            } else {
+                sideMenuPanel.classList.add('translate-x-full');
+                setTimeout(() => sideMenuOverlay.classList.add('hidden'), 300);
+            }
+        }
 
-    // Cerrar modal con tecla Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeInfographicModal();
-    });
-  </script>
+        function clearActiveTimers() {
+            if (activeInterval) {
+                clearInterval(activeInterval);
+                activeInterval = null;
+            }
+        }
+
+        // Abrir Modal de Sección
+        function openSectionModal(key) {
+            const data = sectionsData[key];
+            if (!data) return;
+
+            clearActiveTimers();
+
+            const modal = document.getElementById('detailModal');
+            document.getElementById('modalBadge').textContent = data.badge;
+            document.getElementById('modalBodyContent').innerHTML = `
+                <div class="mb-4">
+                    <h3 class="font-serif font-bold text-2xl sm:text-3xl text-olive-dark">${data.title}</h3>
+                    <p class="font-garamond italic text-olive-medium text-lg">${data.subtitle}</p>
+                </div>
+                ${data.html}
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            if (key === 'juego') {
+                initMemoryGame();
+            }
+        }
+
+        function closeSectionModal() {
+            clearActiveTimers();
+            const modal = document.getElementById('detailModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Cortometraje interactivo
+        function toggleShortFilm() {
+            const btn = document.getElementById('playShortBtn');
+            const status = document.getElementById('shortFilmStatus');
+            const bar = document.getElementById('shortFilmProgress');
+            const timecode = document.getElementById('shortFilmTimecode');
+            if (!btn || !status || !bar) return;
+
+            if (activeInterval) {
+                clearActiveTimers();
+                btn.textContent = '▶';
+                status.textContent = 'Proyección en pausa';
+                return;
+            }
+
+            btn.textContent = '❚❚';
+            status.textContent = 'Reproduciendo: Luces y Agua en Santa Inés...';
+            let pct = parseFloat(bar.style.width) || 0;
+
+            activeInterval = setInterval(() => {
+                pct += 1;
+                if (pct >= 100) {
+                    pct = 0;
+                    clearActiveTimers();
+                    btn.textContent = '▶';
+                    status.textContent = 'Cortometraje concluido • Repetir';
+                }
+                bar.style.width = pct + '%';
+                const totalSec = Math.floor((pct / 100) * 225);
+                const mins = String(Math.floor(totalSec / 60)).padStart(2, '0');
+                const secs = String(totalSec % 60).padStart(2, '0');
+                if (timecode) timecode.textContent = `${mins}:${secs} / 03:45 • Registro patrimonial`;
+            }, 150);
+        }
+
+        // Temporizador de Mindfulness
+        function toggleMindfulnessTimer() {
+            const btn = document.getElementById('mindfulnessToggleBtn');
+            const label = document.getElementById('breathInstruction');
+            const clock = document.getElementById('mindfulnessClock');
+            if (!btn || !label || !clock) return;
+
+            if (activeInterval) {
+                clearActiveTimers();
+                btn.textContent = 'Reanudar Sesión';
+                label.textContent = 'En pausa';
+                return;
+            }
+
+            let remaining = 60;
+            btn.textContent = 'Pausar Sesión';
+            label.textContent = 'Inhala profundo...';
+
+            activeInterval = setInterval(() => {
+                remaining -= 1;
+                if (remaining <= 0) {
+                    clearActiveTimers();
+                    clock.textContent = '00:00';
+                    label.textContent = 'Serenidad alcanzada';
+                    btn.textContent = 'Reiniciar Sesión';
+                    return;
+                }
+                const secs = String(remaining).padStart(2, '0');
+                clock.textContent = `00:${secs}`;
+                const phase = remaining % 8;
+                label.textContent = phase >= 4 ? 'Inhala suave...' : 'Exhala lento...';
+            }, 1000);
+        }
+
+        // Juego Interactivo de Memoria sobre el Jardín de Santa Inés
+        const memorySymbols = [
+            { id: 'fuente', icon: '⛲', name: 'Fuente de Cantera' },
+            { id: 'banca', icon: '🪑', name: 'Banca Colonial' },
+            { id: 'arbol', icon: '🌳', name: 'Árbol Centenario' },
+            { id: 'templo', icon: '⛪', name: 'Templo Santa Inés' }
+        ];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let lockBoard = false;
+
+        function initMemoryGame() {
+            const board = document.getElementById('memoryBoard');
+            const scoreLabel = document.getElementById('gameScoreLabel');
+            const feedback = document.getElementById('gameFeedback');
+            if (!board) return;
+
+            flippedCards = [];
+            matchedPairs = 0;
+            lockBoard = false;
+            scoreLabel.textContent = 'Pares encontrados: 0 / 4';
+            feedback.textContent = 'Voltea dos medallones de Talavera para descubrir los tesoros del jardín.';
+
+            const deck = [...memorySymbols, ...memorySymbols]
+                .sort(() => Math.random() - 0.5);
+
+            board.innerHTML = deck.map((item, idx) => `
+                <button type="button" data-id="${item.id}" data-name="${item.name}" data-icon="${item.icon}"
+                    onclick="flipMemoryCard(this)"
+                    class="h-20 sm:h-24 rounded-2xl bg-talavera-blue border-2 border-cream-gold text-cream flex flex-col items-center justify-center shadow-md hover:scale-105 transition-transform cursor-pointer">
+                    <span class="text-xl sm:text-2xl">✦</span>
+                    <span class="text-[10px] uppercase tracking-wider text-cream-gold mt-0.5">Talavera</span>
+                </button>
+            `).join('');
+        }
+
+        function flipMemoryCard(card) {
+            if (lockBoard || card.dataset.matched === 'true' || flippedCards.includes(card)) return;
+
+            card.classList.remove('bg-talavera-blue', 'text-cream');
+            card.classList.add('bg-cream-light', 'text-olive-dark');
+            card.innerHTML = `
+                <span class="text-2xl sm:text-3xl">${card.dataset.icon}</span>
+                <span class="text-[10px] font-serif font-bold leading-tight text-center px-1 mt-1">${card.dataset.name}</span>
+            `;
+            flippedCards.push(card);
+
+            if (flippedCards.length === 2) {
+                lockBoard = true;
+                const [c1, c2] = flippedCards;
+                if (c1.dataset.id === c2.dataset.id) {
+                    c1.dataset.matched = 'true';
+                    c2.dataset.matched = 'true';
+                    matchedPairs += 1;
+                    document.getElementById('gameScoreLabel').textContent = `Pares encontrados: ${matchedPairs} / 4`;
+                    document.getElementById('gameFeedback').textContent =
+                        matchedPairs === 4
+                            ? '¡Felicidades! Has descubierto todos los símbolos del Jardín de Santa Inés.'
+                            : `¡Excelente! Encontraste: ${c1.dataset.name}.`;
+                    flippedCards = [];
+                    lockBoard = false;
+                } else {
+                    setTimeout(() => {
+                        [c1, c2].forEach(c => {
+                            c.classList.remove('bg-cream-light', 'text-olive-dark');
+                            c.classList.add('bg-talavera-blue', 'text-cream');
+                            c.innerHTML = `<span class="text-xl sm:text-2xl">✦</span><span class="text-[10px] uppercase tracking-wider text-cream-gold mt-0.5">Talavera</span>`;
+                        });
+                        flippedCards = [];
+                        lockBoard = false;
+                    }, 800);
+                }
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Alterna entre la pantalla inicial ("Santa Inés" + "Iniciar") y los objetos del jardín
+        function enterGardenObjects() {
+            const hero = document.getElementById('heroStartScreen');
+            const grid = document.getElementById('gardenObjectsSection');
+            if (hero && grid) {
+                hero.classList.add('hidden');
+                grid.classList.remove('hidden');
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function showHeroScreen() {
+            const hero = document.getElementById('heroStartScreen');
+            const grid = document.getElementById('gardenObjectsSection');
+            if (hero && grid) {
+                grid.classList.add('hidden');
+                hero.classList.remove('hidden');
+                scrollToTop();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSectionModal();
+                toggleMenu(false);
+            }
+        });
+    </script>
 </body>
 </html>
