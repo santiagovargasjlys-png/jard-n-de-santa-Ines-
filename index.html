@@ -931,53 +931,60 @@
     <!-- LÓGICA INTERACTIVA, TEMPORIZADOR MINDFULNESS Y JUEGO DE MEMORIA       -->
     <!-- ===================================================================== -->
     <script>
-        const sectionsData = {
-            cedula: {
-                badge: 'Fuente de Cantera • Cédula Patrimonial',
-                title: 'Cédula Patrimonial: Jardín de Santa Inés',
-                subtitle: 'Antigua plazuela conventual en 9 Poniente y 3 Sur, Centro Histórico de Puebla',
-                html: `
-                    <div class="space-y-4 font-garamond text-lg leading-relaxed">
-                        <p>
-                            Ubicado en la intersección de las calles <strong>9 Poniente y 3 Sur</strong>, el <strong>Jardín de Santa Inés</strong> ocupa el espacio de la histórica plazuela frente al antiguo Convento de Religiosas Dominicas de Santa Inés de Monte Pulciano, fundado en el siglo XVII en la Angelópolis.
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
-                            <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-3.5">
-                                <span class="text-xs uppercase tracking-wider text-olive-medium font-bold block">Ubicación Exacta</span>
-                                <span class="font-serif font-bold text-base">Calle 9 Poniente y 3 Sur, Centro Histórico, Puebla</span>
-                            </div>
-                            <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-3.5">
-                                <span class="text-xs uppercase tracking-wider text-olive-medium font-bold block">Trazado y Mobiliario</span>
-                                <span class="font-serif font-bold text-base">Estilo neoclásico/porfiriano: fuente de cantera, bancas y faroles</span>
-                            </div>
-                        </div>
-                        <p>
-                            Su trazado simétrico de andadores radiales converge en la <strong>fuente central de cantera labrada</strong>, rodeada por jardineras con setos recortados, faroles de hierro fundido y bancas clásicas de madera y hierro forjado que dialogan con la arquitectura barroca poblana del entorno.
-                        </p>
+       let activeInterval = null;
+
+const sectionsData = {
+    cedula: {
+        badge: 'Fuente de Cantera • Cédula Patrimonial',
+        title: 'Cédula Patrimonial: Jardín de Santa Inés',
+        subtitle: 'Antigua plazuela conventual en 9 Poniente y 3 Sur, Centro Histórico de Puebla',
+        html: `
+            <div class="space-y-4 font-garamond text-lg leading-relaxed">
+                <p>
+                    Ubicado en la intersección de las calles <strong>9 Poniente y 3 Sur</strong>, el <strong>Jardín de Santa Inés</strong> ocupa el espacio de la histórica plazuela frente al antiguo Convento de Religiosas Dominicas de Santa Inés de Monte Pulciano, fundado en el siglo XVII en la Angelópolis.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+                    <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-3.5">
+                        <span class="text-xs uppercase tracking-wider text-olive-medium font-bold block">Ubicación Exacta</span>
+                        <span class="font-serif font-bold text-base">Calle 9 Poniente y 3 Sur, Centro Histórico, Puebla</span>
                     </div>
-                `
-            },
-           const sectionsData = {
-            cedula: {
-                badge: 'Fuente de Cantera • Cédula Patrimonial',
-                title: 'Cédula Patrimonial: Jardín de Santa Inés',
-                subtitle: 'Antigua plazuela conventual en 9 Poniente y 3 Sur, Centro Histórico de Puebla',
-                html: `
-                    <div class="space-y-4 font-garamond text-lg leading-relaxed">
-                        <p>
-                            Ubicado en la intersección de las calles <strong>9 Poniente y 3 Sur</strong>, el <strong>Jardín de Santa Inés</strong> ocupa el espacio de la histórica plazuela frente al antiguo Convento de Religiosas Dominicas de Santa Inés de Monte Pulciano, fundado en el siglo XVII en la Angelópolis.
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
-                            <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-3.5">
-                                <span class="text-xs uppercase tracking-wider text-olive-medium font-bold block">Ubicación Exacta</span>
-                                <span class="font-serif font-bold text-base">Calle 9 Poniente y 3 Sur, Centro Histórico, Puebla</span>
-                            </div>
-                            <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-3.5">
-                                <span class="text-xs uppercase tracking-wider text-olive-medium font-bold block">Trazado y Mobiliario</span>
-                                <span class="font-serif font-bold text-base">Estilo neoclásico/porfiriano: fuente de cantera, bancas y faroles</span>
-                            </div>
-                        </div>
-                    </div>`
+                    <div class="bg-olive-dark/5 border border-olive-dark/20 rounded-2xl p-3.5">
+                        <span class="text-xs uppercase tracking-wider text-olive-medium font-bold block">Trazado y Mobiliario</span>
+                        <span class="font-serif font-bold text-base">Estilo neoclásico/porfiriano: fuente de cantera, bancas y faroles</span>
+                    </div>
+                </div>
+                <p>
+                    Su trazado simétrico de andadores radiales converge en la <strong>fuente central de cantera labrada</strong>, rodeada por jardineras con setos recortados, faroles de hierro fundido y bancas clásicas de madera y hierro forjado que dialogan con la arquitectura barroca poblana del entorno.
+                </p>
+            </div>
+        `
+    },
+    cortometraje: {
+        badge: 'Farol Colonial • Documental 03:45',
+        title: 'Cortometraje: Luces y Agua en Santa Inés',
+        subtitle: 'Atmósfera sonora del murmullo de la fuente y el caer de la tarde en Puebla',
+        html: `
+            <div class="space-y-4 font-garamond text-lg">
+                <div class="relative rounded-2xl overflow-hidden border-2 border-olive-dark/35 bg-olive-deep aspect-video flex flex-col items-center justify-center text-cream p-6 text-center shadow-inner">
+                    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,#c9b98c_0%,transparent_70%)]"></div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <button id="playShortBtn" onclick="toggleShortFilm()"
+                            class="w-16 h-16 rounded-full bg-cream text-olive-dark flex items-center justify-center text-2xl shadow-xl hover:scale-110 transition-transform cursor-pointer mb-3">
+                            ▶
+                        </button>
+                        <p id="shortFilmStatus" class="font-serif text-xl font-bold">Iniciar proyección documental</p>
+                        <p id="shortFilmTimecode" class="text-sm italic text-cream-gold mt-1">00:00 / 03:45 • Registro patrimonial en 9 Poniente y 3 Sur</p>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 h-2 bg-cream/20">
+                        <div id="shortFilmProgress" class="h-full bg-cream-gold w-0 transition-all duration-200"></div>
+                    </div>
+                </div>
+                <p class="leading-relaxed">
+                    Cuando se encienden los <strong>faroles coloniales</strong> del Jardín de Santa Inés, la luz cálida acaricia la piedra de cantera y las fachadas de ladrillo y talavera. Este cortometraje captura las voces de los vecinos, el repique lejano de las campanas y el fluir constante de su fuente.
+                </p>
+            </div>
+        `
+    }
             },
             cortometraje: {
                 badge: 'Farol Colonial • Documental 03:45',
